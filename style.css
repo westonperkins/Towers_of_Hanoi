@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* TOWER STYLING */
+
+.base {
+    width: 400px;
+    height: 30px;
+    background: gray;
+    margin: 0rem 4rem;
+}
+
+.tower {
+    width: 50px;
+    height: 500px;
+    background-color: gray;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+}
+.invisible {
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: brown solid;
+ 
+}
+
+.pillars {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 20rem;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black solid;
+}
+
+/* RING STYLING */
+
+.ringFive {
+    background-color: blue;
+    width: 350px;
+    height: 70px;
+    z-index: 1;
+    
+}
+
+.ringFour {
+    background-color: red;
+    width: 300px;
+    height: 70px;
+    position: absolute;
+    top: 30;
+    bottom: 70px;
+}
+
+.ringThree {
+    background-color: green;
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    top: 30;
+    bottom: 140px;
+}
+
+.ringTwo {
+    background-color: purple;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    top: 30;
+    bottom: 210px;
+}
+.ringOne {
+    background-color: brown;
+    width: 150px;
+    height: 70px;
+    position: absolute;
+    top: 30;
+    bottom: 280px;
+}
+
+.ring {
+    border: black solid;
+}
