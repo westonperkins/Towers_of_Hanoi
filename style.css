@@ -31,7 +31,6 @@
     flex-direction: column;
     justify-content: flex-end;
     border: brown solid;
-    z-index: 1;
  
 }
 
@@ -46,52 +45,57 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: black solid;
+    /* border: black solid; */
 }
 
 /* RING STYLING */
 
 .ringFive {
-    background-color: blue;
+    background-color: yellow;
     width: 350px;
     height: 70px;
-    z-index: 1;
-    
+    /* z-index: 0; */
+    position: absolute;
+    top: 30;
+    bottom: 0px;
+   
 }
 
 .ringFour {
-    background-color: red;
+    background-color: yellow;
     width: 300px;
     height: 70px;
     position: absolute;
     top: 30;
-    bottom: 70px;
+    bottom: 75px;
+    /* z-index: 1; */
 }
 
 .ringThree {
-    background-color: green;
+    background-color: yellow;
     width: 250px;
     height: 70px;
     position: absolute;
     top: 30;
-    bottom: 140px;
+    bottom: 150px;
 }
 
 .ringTwo {
-    background-color: purple;
+    background-color: yellow;
     width: 200px;
     height: 70px;
     position: absolute;
     top: 30;
-    bottom: 210px;
+    bottom: 225px;
 }
 .ringOne {
-    background-color: brown;
+    background-color: yellow;
     width: 150px;
     height: 70px;
     position: absolute;
     top: 30;
-    bottom: 280px;
+    bottom: 300px;
+
 }
 
 .ring {

@@ -4,6 +4,15 @@ const invisibleTTWO = document.querySelector('.IT2')
 const invisibleTTHREE = document.querySelector('.IT3')
 const invis = document.querySelectorAll('.invisible')
 const pillars = document.querySelectorAll('.pillar')
+const reset = document.querySelector('.reset')
+const counter = document.querySelector('.counter')
+let counterNum = document.querySelector('.counterNum')
+
+
+
+let sum = 0
+
+
 
 
 // RING CREATING & APPENDING 
@@ -40,44 +49,115 @@ function ringSetUp(tower, ring){
     tower.append(ring)
 }
 
-ringSetUp(invisibleTONE, ringOne)
-ringSetUp(invisibleTONE, ringTwo)
-ringSetUp(invisibleTONE, ringThree)
-ringSetUp(invisibleTONE, ringFour)
 ringSetUp(invisibleTONE, ringFive)
+ringSetUp(invisibleTONE, ringFour)
+ringSetUp(invisibleTONE, ringThree)
+ringSetUp(invisibleTONE, ringTwo)
+ringSetUp(invisibleTONE, ringOne)
 
-let selectedRing = null
+let selectedRing = ''
+let selectedTower = ''
 
-function setRing(ring) {
-    ring.style.transform = 'translateY(-40vh)'
-}
+// DROP RING
 function resetRing(ring) {
     ring.style.transform = 'translateY(0vh)'
+    ring.style.bottom = '0' + ((selectedTower.childNodes.length - 1) * 75) + 'px'
+}
+// RAISE RING
+function setRing() {
+    selectedRing.style.transform = 'translateY(-20vh)'
 }
 
+
+// MOVE RING
 function moveRings(ring, towerTo) {
-    towerTo.append(ring)
+    if(ring.classList[0] === 'ring' && towerTo.classList[0] === 'invisible') {
+        towerTo.append(ring)
+        sum += 1
+        counterNum.innerText = sum
+    }
 }
 
 // able to move rings (NOT DONE)
 
+
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
-        if(e.target.childNodes.length >= 1) {
-            console.log(e.target.childNodes.length)
-            // console.log(e.target.classList[0])
-            selectedRing = e.target.childNodes[0]
-            setRing(selectedRing)
-            console.log(selectedRing)
-        } else if(e.target.classList[0] == "invisible") {
-            invis[i].addEventListener('click', e => {
-                // moveRings(selectedRing, e.target)
-                // resetRing(selectedRing)
-                // console.log(selectedRing)
-            })
+        if((e.target.classList[0] === 'ring') && (e.target === e.target.parentNode.childNodes[e.target.parentNode.childNodes.length-1])) {
+            selectedRing = e.target
+            setRing()
         }
     })
 }
+    
+for(let i = 0; i < invis.length; i++) {
+    invis[i].addEventListener('click', e => {
+        if(e.target.classList[0] == "invisible") {
+            if(selectedRing === null) {
+                alert('you must only choose a ring')
+            } else {
+                selectedTower = e.target
+                if(selectedTower.childNodes.length === 0) {
+                    moveRings(selectedRing, selectedTower)
+                    resetRing(selectedRing)
+                    selectedRing = ''
+                } else if(selectedTower.childNodes.length >= 1) {
+                    if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
+                        moveRings(selectedRing, selectedTower)
+                        resetRing(selectedRing)
+                    } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
+                        alert('the ring on this tower is not wide enough')
+                    }
+                }
+            }
+        }
+    })
+}
+
+
+
+
+
+
+// RESET BUTTON 
+reset.addEventListener('click', () => {
+    ringSetUp(invisibleTONE, ringFive)
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // moveRings(ringOne, invisibleTTHREE)
@@ -241,8 +321,6 @@ const tThree = new Tower('three', [])
 
 
 // LOGIC
-
-
 
 
 
