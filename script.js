@@ -7,13 +7,10 @@ const pillars = document.querySelectorAll('.pillar')
 const reset = document.querySelector('.reset')
 const counter = document.querySelector('.counter')
 let counterNum = document.querySelector('.counterNum')
+let resetNum = document.querySelector('.resetCounterNum')
 
-
-
-let sum = 0
-
-
-
+let resetSum = 0
+let moveSum = 0
 
 // RING CREATING & APPENDING 
 const ringOne = document.createElement('div')
@@ -45,18 +42,41 @@ let towerOneArr = [ringOne, ringTwo, ringThree, ringFour, ringFive]
 let towerTwoArr = []
 let towerThreeArr = []
 
+
+// SETTING UP GAME WITH RINGS ON PILLARS
+let selectedRing = ''
+let selectedTower = ''
+
 function ringSetUp(tower, ring){
     tower.append(ring)
 }
-
 ringSetUp(invisibleTONE, ringFive)
 ringSetUp(invisibleTONE, ringFour)
 ringSetUp(invisibleTONE, ringThree)
 ringSetUp(invisibleTONE, ringTwo)
 ringSetUp(invisibleTONE, ringOne)
 
-let selectedRing = ''
-let selectedTower = ''
+// RESET BUTTON 
+reset.addEventListener('click', () => {
+    ringSetUp(invisibleTONE, ringFive)
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+    ringFive.style.bottom = '0px'
+    ringFour.style.bottom = '75px'
+    ringThree.style.bottom = '150px'
+    ringTwo.style.bottom = '225px'
+    ringOne.style.bottom = '300px'
+    if(selectedRing) {
+        selectedRing.style.transform = 'translateY(0px)'
+        console.log(selectedRing)
+    }
+    resetSum += 1
+    resetNum.innerText = resetSum
+})
+
+
 
 // DROP RING
 function resetRing(ring) {
@@ -64,8 +84,8 @@ function resetRing(ring) {
     ring.style.bottom = '0' + ((selectedTower.childNodes.length - 1) * 75) + 'px'
 }
 // RAISE RING
-function setRing() {
-    selectedRing.style.transform = 'translateY(-20vh)'
+function setRing(x) {
+    selectedRing.style.transform = 'translateY(' + (-1*(150 + (x * 75))) + 'px)'
 }
 
 
@@ -73,8 +93,8 @@ function setRing() {
 function moveRings(ring, towerTo) {
     if(ring.classList[0] === 'ring' && towerTo.classList[0] === 'invisible') {
         towerTo.append(ring)
-        sum += 1
-        counterNum.innerText = sum
+        moveSum += 1
+        counterNum.innerText = moveSum
     }
 }
 
@@ -85,7 +105,8 @@ for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if((e.target.classList[0] === 'ring') && (e.target === e.target.parentNode.childNodes[e.target.parentNode.childNodes.length-1])) {
             selectedRing = e.target
-            setRing()
+            // console.log(e.target.dataset['ring'])
+            setRing(e.target.dataset['ring'])
         }
     })
 }
@@ -101,10 +122,17 @@ for(let i = 0; i < invis.length; i++) {
                     moveRings(selectedRing, selectedTower)
                     resetRing(selectedRing)
                     selectedRing = ''
+                    console.log(selectedTower)
+                    if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
+                        console.log("GAMNE WON")
+                    }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         moveRings(selectedRing, selectedTower)
                         resetRing(selectedRing)
+                        if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
+                            console.log("GAME WON")
+                        }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the ring on this tower is not wide enough')
                     }
@@ -114,19 +142,13 @@ for(let i = 0; i < invis.length; i++) {
     })
 }
 
+console.log(invisibleTONE.childNodes)
 
 
 
 
 
-// RESET BUTTON 
-reset.addEventListener('click', () => {
-    ringSetUp(invisibleTONE, ringFive)
-    ringSetUp(invisibleTONE, ringFour)
-    ringSetUp(invisibleTONE, ringThree)
-    ringSetUp(invisibleTONE, ringTwo)
-    ringSetUp(invisibleTONE, ringOne)
-})
+
 
 
 

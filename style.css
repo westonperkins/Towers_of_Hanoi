@@ -30,8 +30,8 @@
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
-    border: brown solid;
- 
+    /* border: brown solid; */
+
 }
 
 .pillars {
@@ -95,7 +95,6 @@
     position: absolute;
     top: 30;
     bottom: 300px;
-
 }
 
 .ring {
