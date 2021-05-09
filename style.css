@@ -3,7 +3,11 @@
     padding: 0;
 }
 
-
+body {
+    height: 100vh;
+    background-color: beige
+    ;
+}
 /* TOWER STYLING */
 
 .base {
@@ -31,7 +35,7 @@
     flex-direction: column;
     justify-content: flex-end;
     /* border: brown solid; */
-
+    
 }
 
 .pillars {
@@ -42,6 +46,7 @@
 }
 
 .pillar {
+    margin: 0 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +56,7 @@
 /* RING STYLING */
 
 .ringFive {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 350px;
     height: 70px;
     /* z-index: 0; */
@@ -62,7 +67,7 @@
 }
 
 .ringFour {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 300px;
     height: 70px;
     position: absolute;
@@ -72,7 +77,7 @@
 }
 
 .ringThree {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 250px;
     height: 70px;
     position: absolute;
@@ -81,7 +86,7 @@
 }
 
 .ringTwo {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 200px;
     height: 70px;
     position: absolute;
@@ -89,7 +94,7 @@
     bottom: 225px;
 }
 .ringOne {
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 150px;
     height: 70px;
     position: absolute;
@@ -99,4 +104,54 @@
 
 .ring {
     border: black solid;
+    background-color: orange;
+}
+
+/* RESET BUTTON */
+
+.reset {
+    width: 6rem;
+    height: 6rem;
+    margin: 3rem;
+}
+
+/* COUNTER STYLING */ 
+.counters {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+/* .resetCounter {
+    margin: 3rem;
+} */
+
+/* HEADER */
+.header {
+    display: flex;
+}
+/* LINE STYLING */
+.lineOne {
+    border-bottom: black solid;
+    top: 30px;
+    position: absolute;
+    width: 100vw;
+}
+.lineTwo {
+    border-bottom: black solid;
+    bottom: 30px;
+    position: absolute;
+    width: 100vw;
+}
+.lineThree {
+    border-bottom: red solid;
+    left: 30px;
+    position: absolute;
+    height: 100vh;
+}
+.lineFour {
+    border-bottom: black solid;
+    right: 30px;
+    position: absolute;
+    height: 100vh;
 }

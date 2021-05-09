@@ -12,7 +12,7 @@ let resetNum = document.querySelector('.resetCounterNum')
 let resetSum = 0
 let moveSum = 0
 
-// RING CREATING & APPENDING 
+// CREATING RINGS TO APPEND TO TOWERS
 const ringOne = document.createElement('div')
 ringOne.setAttribute("class", 'ring ringOne')
 ringOne.setAttribute("data-ring", '1')
@@ -33,18 +33,17 @@ const ringFive = document.createElement('div')
 ringFive.className = 'ring ringFive'
 ringFive.setAttribute("data-ring", '5')
 
-
+// QUERY SELECTOR FOR ALL RINGS
 const rings = document.querySelectorAll('.ring')
 
-// EVENT LISTENER ON RINGS
-
+// TOWER ARRAYS, MIGHT NOT USE
 let towerOneArr = [ringOne, ringTwo, ringThree, ringFour, ringFive]
 let towerTwoArr = []
 let towerThreeArr = []
 
-
-// SETTING UP GAME WITH RINGS ON PILLARS
+// SETTING UP GAME LOGIC WITH RINGS ON PILLARS
 let selectedRing = ''
+let previouslySelectedRing = ''
 let selectedTower = ''
 
 function ringSetUp(tower, ring){
@@ -70,13 +69,10 @@ reset.addEventListener('click', () => {
     ringOne.style.bottom = '300px'
     if(selectedRing) {
         selectedRing.style.transform = 'translateY(0px)'
-        console.log(selectedRing)
     }
     resetSum += 1
     resetNum.innerText = resetSum
 })
-
-
 
 // DROP RING
 function resetRing(ring) {
@@ -85,9 +81,16 @@ function resetRing(ring) {
 }
 // RAISE RING
 function setRing(x) {
+    console.log(selectedRing.classList[1])
+    if(previouslySelectedRing) {
+        console.log(previouslySelectedRing.classList[1] + ' prev')
+    }
+    if(selectedRing === previouslySelectedRing) {
+        previouslySelectedRing = ''
+    }
     selectedRing.style.transform = 'translateY(' + (-1*(150 + (x * 75))) + 'px)'
+    previouslySelectedRing.style.transform = 'translateY(0vh)'
 }
-
 
 // MOVE RING
 function moveRings(ring, towerTo) {
@@ -98,15 +101,19 @@ function moveRings(ring, towerTo) {
     }
 }
 
-// able to move rings (NOT DONE)
-
+// ABLE TO MOVE RINGS FROM PILLAR TO PILLAR, *********STILL NEED TO MAKE IT SO THAT WHEN ONE RING IS RAISED(setRing), THE OTHER RINGS CANNOT BE RAISED AS WELL
 
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if((e.target.classList[0] === 'ring') && (e.target === e.target.parentNode.childNodes[e.target.parentNode.childNodes.length-1])) {
-            selectedRing = e.target
-            // console.log(e.target.dataset['ring'])
-            setRing(e.target.dataset['ring'])
+            if(selectedRing === '') {
+                selectedRing = e.target
+                setRing(e.target.dataset['ring'])
+            }else if(selectedRing != '') {
+                previouslySelectedRing = selectedRing
+                selectedRing = e.target
+                setRing(e.target.dataset['ring'])
+            }
         }
     })
 }
@@ -122,7 +129,6 @@ for(let i = 0; i < invis.length; i++) {
                     moveRings(selectedRing, selectedTower)
                     resetRing(selectedRing)
                     selectedRing = ''
-                    console.log(selectedTower)
                     if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
                         console.log("GAMNE WON")
                     }
@@ -142,54 +148,9 @@ for(let i = 0; i < invis.length; i++) {
     })
 }
 
-console.log(invisibleTONE.childNodes)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// moveRings(ringOne, invisibleTTHREE)
-// moveRings(ringTwo, invisibleTTWO)
-
-
-
-// e.target.classList[0] === 'ring'
-
-// RING AND TOWER CLASSES WITH BACKEND LOGIC
+// MIGHT NOT USE, CLASSES AND METHODS FOR POTENTIAL BACKEND
 
 class Ring {
     constructor(width) {
@@ -243,106 +204,6 @@ class Tower {
 const tOne = new Tower('one', [rOne, rTwo, rThree, rFour, rFive])
 const tTwo = new Tower('two', [])
 const tThree = new Tower('three', [])
-
-
-
-// SELECTED RINGS
-0
-
-
-
-
-
-
-
-// for(let i = 0; i < rings.length; i++) {
-//     rings[i].addEventListener('click', e => {
-//         console.log(e.target)
-//     })
-// }
-   
-   
-// for(let i = 0; i < pillars.length; i++) {
-//     pillars[i].addEventListener('click', e => {
-//         if(e.target.classList[0] === 'invisible') {
-//             console.log(e.target)
-//             console.log(e.target.childNodes)
-//         }else if(e.target.classList[0] === 'ring') {
-//             // WHERE I LEFT OFF: trying to make a condiiton for second click to drop onto second pillar
-//             if(e.target.childNodes) {
-//                 console.log(e.target)
-//                 const target1 = e.target
-//                 moveRings(target1)
-//             }
-//             // function placeRings(towerTo) {
-//             //     towerTo.append(target1)
-//             // }
-//             pillars[i].addEventListener('click', i => {
-//                 placeRings(i.target)
-//             })
-  
-//         }
-//     })
-// }
-
-
-
-// console.log(tOne)
-// tOne.moveRing(tOne, tThree)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tOne, tTwo)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tTwo, tOne)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tOne, tTwo)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tThree, tTwo)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tOne, tThree)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tTwo, tOne)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tTwo, tThree)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tOne, tThree)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-// tOne.moveRing(tOne, tTwo)
-// console.log(tOne)
-// console.log(tTwo)
-// console.log(tThree)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// LOGIC
 
 
 
