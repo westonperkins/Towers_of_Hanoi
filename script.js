@@ -8,6 +8,12 @@ const reset = document.querySelector('.reset')
 const counter = document.querySelector('.counter')
 let counterNum = document.querySelector('.counterNum')
 let resetNum = document.querySelector('.resetCounterNum')
+let winnerMoves = document.querySelector('.winnerMoves')
+let winnerResets = document.querySelector('.winnerResets')
+const winnerStatement = document.querySelector('.winner')
+const ringCount = document.querySelector('#ringCount')
+const submit = document.querySelector('#submit')
+
 
 let resetSum = 0
 let moveSum = 0
@@ -16,30 +22,60 @@ let moveSum = 0
 const ringOne = document.createElement('div')
 ringOne.setAttribute("class", 'ring ringOne')
 ringOne.setAttribute("data-ring", '1')
+ringOne.style.width = '150px'
+ringOne.style.height = '70px'
 
 const ringTwo = document.createElement('div')
 ringTwo.setAttribute("class", 'ring ringTwo')
 ringTwo.setAttribute("data-ring", '2')
+ringTwo.style.width = '200px'
+ringTwo.style.height = '70px'
 
 const ringThree = document.createElement('div')
 ringThree.setAttribute("class", 'ring ringThree')
 ringThree.setAttribute("data-ring", '3')
+ringThree.style.width = '250px'
+ringThree.style.height = '70px'
 
 const ringFour = document.createElement('div')
 ringFour.setAttribute("class", 'ring ringFour')
 ringFour.setAttribute("data-ring", '4')
+ringFour.style.width = '300px'
+ringFour.style.height = '70px'
 
 const ringFive = document.createElement('div')
 ringFive.className = 'ring ringFive'
 ringFive.setAttribute("data-ring", '5')
+ringFive.style.width = '350px'
+ringFive.style.height = '70px'
+
+const ringSix = document.createElement('div')
+ringSix.className = 'ring ringSix'
+ringSix.setAttribute('data-ring', '6')
+ringSix.style.width = '400px'
+ringSix.style.height = '70px'
+
+const ringSeven = document.createElement('div')
+ringSeven.className = 'ring ringSeven'
+ringSeven.setAttribute('data-ring', '7')
+ringSeven.style.width = '450px'
+ringSeven.style.height = '70px'
+
+const ringEight = document.createElement('div')
+ringEight.className = 'ring ringEight'
+ringEight.setAttribute('data-ring', '8')
+ringEight.style.width = '500px'
+ringEight.style.height = '70px'
+
 
 // QUERY SELECTOR FOR ALL RINGS
 const rings = document.querySelectorAll('.ring')
 
+
 // TOWER ARRAYS, MIGHT NOT USE
-let towerOneArr = [ringOne, ringTwo, ringThree, ringFour, ringFive]
-let towerTwoArr = []
-let towerThreeArr = []
+// let towerOneArr = [ringOne, ringTwo, ringThree, ringFour, ringFive]
+// let towerTwoArr = []
+// let towerThreeArr = []
 
 // SETTING UP GAME LOGIC WITH RINGS ON PILLARS
 let selectedRing = ''
@@ -49,29 +85,185 @@ let selectedTower = ''
 function ringSetUp(tower, ring){
     tower.append(ring)
 }
-ringSetUp(invisibleTONE, ringFive)
-ringSetUp(invisibleTONE, ringFour)
-ringSetUp(invisibleTONE, ringThree)
-ringSetUp(invisibleTONE, ringTwo)
-ringSetUp(invisibleTONE, ringOne)
 
-// RESET BUTTON 
-reset.addEventListener('click', () => {
+
+
+// RING NUMBER SETUP
+
+function threeRings() {
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+}
+function fourRings() {
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+}
+function fiveRings() {
     ringSetUp(invisibleTONE, ringFive)
     ringSetUp(invisibleTONE, ringFour)
     ringSetUp(invisibleTONE, ringThree)
     ringSetUp(invisibleTONE, ringTwo)
     ringSetUp(invisibleTONE, ringOne)
-    ringFive.style.bottom = '0px'
-    ringFour.style.bottom = '75px'
-    ringThree.style.bottom = '150px'
-    ringTwo.style.bottom = '225px'
-    ringOne.style.bottom = '300px'
+}
+function sixRings() {
+    ringSetUp(invisibleTONE, ringSix)
+    ringSetUp(invisibleTONE, ringFive)
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+}
+function sevenRings() {
+    ringSetUp(invisibleTONE, ringSeven)
+    ringSetUp(invisibleTONE, ringSix)
+    ringSetUp(invisibleTONE, ringFive)
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+}
+function eightRings() {
+    ringSetUp(invisibleTONE, ringEight)
+    ringSetUp(invisibleTONE, ringSeven)
+    ringSetUp(invisibleTONE, ringSix)
+    ringSetUp(invisibleTONE, ringFive)
+    ringSetUp(invisibleTONE, ringFour)
+    ringSetUp(invisibleTONE, ringThree)
+    ringSetUp(invisibleTONE, ringTwo)
+    ringSetUp(invisibleTONE, ringOne)
+}
+
+
+
+// LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS
+function check() {
+    for(let i = 0; i < invis.length; i++) {
+        if(invis[i].childNodes[0]){
+            invis[i].childNodes[0].style.bottom = '0px'
+        }
+        if(invis[i].childNodes[1]) {
+            invis[i].childNodes[1].style.bottom = '76px'
+        }
+        if(invis[i].childNodes[2]) {
+            invis[i].childNodes[2].style.bottom = '152px'
+        }
+        if(invis[i].childNodes[3]) {
+            invis[i].childNodes[3].style.bottom = '228px'
+        }
+        if(invis[i].childNodes[4]) {
+            invis[i].childNodes[4].style.bottom = '304px'
+        }
+        if(invis[i].childNodes[5]) {
+            invis[i].childNodes[5].style.bottom = '380px'
+        }
+        if(invis[i].childNodes[6]) {
+            invis[i].childNodes[6].style.bottom = '456px'
+        }
+        if(invis[i].childNodes[7]) {
+            invis[i].childNodes[7].style.bottom = '532px'
+        }
+        if(invis[i].childNodes === []) {
+            console.log('error')
+        }
+    }
+}
+
+// FIVE RINGS WILL BE DEFAULT
+fiveRings()
+check()
+
+function clearRings() {
+    if(invisibleTONE.hasChildNodes(ringOne)) {
+        invisibleTONE.removeChild(ringOne)
+    }
+    if(invisibleTONE.hasChildNodes(ringTwo)) {
+        invisibleTONE.removeChild(ringTwo)
+    }
+    if(invisibleTONE.hasChildNodes(ringThree)) {
+        invisibleTONE.removeChild(ringThree)
+    }
+    if(invisibleTONE.hasChildNodes(ringFour)) {
+        invisibleTONE.removeChild(ringFour)
+    }
+    if(invisibleTONE.hasChildNodes(ringFive)) {
+        invisibleTONE.removeChild(ringFive)
+    }
+    if(invisibleTONE.hasChildNodes(ringSix)) {
+        invisibleTONE.removeChild(ringSix)
+    }
+    if(invisibleTONE.hasChildNodes(ringSeven)) {
+        invisibleTONE.removeChild(ringSeven)
+    }
+    if(invisibleTONE.hasChildNodes(ringEight)) {
+        invisibleTONE.removeChild(ringEight)
+    }
+}
+
+
+console.log(invisibleTONE.childNodes)
+
+// SUBMIT BUTTON
+submit.addEventListener('click', () => {
+    console.log(ringCount.value)
+    if(ringCount.value == 3) {
+        threeRings()
+        clearRings()
+        threeRings()
+    } else if(ringCount.value == 4) {
+        fourRings()
+        clearRings()
+        fourRings()
+    } else if(ringCount.value == 5) {
+        fiveRings()
+        clearRings()
+        fiveRings()
+    } else if(ringCount.value == 6) {
+        sixRings()
+        clearRings()
+        sixRings()
+    } else if(ringCount.value == 7) {
+        sevenRings()
+        clearRings()
+        sevenRings()
+    } else if(ringCount.value == 8) {
+        eightRings()
+        clearRings()
+        eightRings()
+    }
+    check()
+})
+
+// RESET BUTTON 
+reset.addEventListener('click', () => {
+    if(ringCount.value == 3) {
+        threeRings()
+        check()
+    } else if(ringCount.value == 4) {
+        fourRings()
+        check()
+    } else if(ringCount.value == 5) {
+        fiveRings()
+        check()
+    } else if(ringCount.value == 6) {
+        sixRings()
+        check()
+    } else if(ringCount.value == 7) {
+        sevenRings()
+        check()
+    } else if(ringCount.value == 8) {
+        eightRings()
+        check()
+    }
+    
     if(selectedRing) {
         selectedRing.style.transform = 'translateY(0px)'
     }
     resetSum += 1
     resetNum.innerText = resetSum
+    winnerResets.innerText = resetSum
 })
 
 // DROP RING
@@ -82,15 +274,18 @@ function resetRing(ring) {
 // RAISE RING
 function setRing(x) {
     console.log(selectedRing.classList[1])
+    // ENSURING THAT NO TWO RINGS CAN BE UP AT THE SAME TIME 
     if(previouslySelectedRing) {
         console.log(previouslySelectedRing.classList[1] + ' prev')
-    }
-    if(selectedRing === previouslySelectedRing) {
+        previouslySelectedRing.style.transform = 'translateY(0vh)'
+    } else if(selectedRing === previouslySelectedRing) {
         previouslySelectedRing = ''
+    } else {
+        console.log('there is no previously selected ring')
     }
     selectedRing.style.transform = 'translateY(' + (-1*(150 + (x * 75))) + 'px)'
-    previouslySelectedRing.style.transform = 'translateY(0vh)'
 }
+
 
 // MOVE RING
 function moveRings(ring, towerTo) {
@@ -98,6 +293,8 @@ function moveRings(ring, towerTo) {
         towerTo.append(ring)
         moveSum += 1
         counterNum.innerText = moveSum
+        winnerMoves.innerText = moveSum
+        check()
     }
 }
 
@@ -131,6 +328,7 @@ for(let i = 0; i < invis.length; i++) {
                     selectedRing = ''
                     if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
                         console.log("GAMNE WON")
+                        winnerStatement.style.opacity = '100'
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -138,6 +336,7 @@ for(let i = 0; i < invis.length; i++) {
                         resetRing(selectedRing)
                         if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
                             console.log("GAME WON")
+                            winnerStatement.style.opacity = '100'
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the ring on this tower is not wide enough')
@@ -147,6 +346,16 @@ for(let i = 0; i < invis.length; i++) {
         }
     })
 }
+
+winnerStatement.style.opacity = '0'
+
+
+
+
+
+
+
+
 
 
 

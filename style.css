@@ -55,66 +55,64 @@ body {
 
 /* RING STYLING */
 
-.ringFive {
-    /* background-color: yellow; */
-    width: 350px;
-    height: 70px;
-    /* z-index: 0; */
+.ringEight {
     position: absolute;
     top: 30;
-    bottom: 0px;
-   
+    /* bottom: 0px; */
+}
+.ringSeven {
+    position: absolute;
+    top: 30;
+    /* bottom: 0px; */
+}
+.ringSix {
+    position: absolute;
+    top: 30;
+    /* bottom: 0px; */
+}
+.ringFive {
+    position: absolute;
+    top: 30;
+    /* bottom: 0px; */
 }
 
 .ringFour {
-    /* background-color: yellow; */
-    width: 300px;
-    height: 70px;
     position: absolute;
     top: 30;
-    bottom: 75px;
-    /* z-index: 1; */
+    /* bottom: 75px; */
 }
 
 .ringThree {
-    /* background-color: yellow; */
-    width: 250px;
-    height: 70px;
     position: absolute;
     top: 30;
-    bottom: 150px;
+    /* bottom: 150px; */
 }
 
 .ringTwo {
-    /* background-color: yellow; */
-    width: 200px;
-    height: 70px;
     position: absolute;
     top: 30;
-    bottom: 225px;
+    /* bottom: 225px; */
 }
 .ringOne {
-    /* background-color: yellow; */
-    width: 150px;
-    height: 70px;
     position: absolute;
     top: 30;
-    bottom: 300px;
+    /* bottom: 300px; */
 }
 
 .ring {
     border: black solid;
-    background-color: orange;
+    /* background-color: orange; */
 }
 
-/* RESET BUTTON */
 
-.reset {
-    width: 6rem;
-    height: 6rem;
-    margin: 3rem;
+
+/* HEADER */
+.header {
+    display: flex;
+    width: 100vw;
+    /* border: orange solid; */
+    justify-content: space-between;
 }
-
 /* COUNTER STYLING */ 
 .counters {
     margin: 3rem;
@@ -122,14 +120,28 @@ body {
     flex-direction: column;
     font-size: 2rem;
 }
-/* .resetCounter {
-    margin: 3rem;
-} */
+/* RESET BUTTON */
 
-/* HEADER */
-.header {
-    display: flex;
+.reset {
+    width: 6rem;
+    height: 6rem;
+    margin: 3rem;
+    
 }
+
+/* WIN STATEMENT */
+.winCondition {
+    display: flex;
+    width: 100vw;
+    position: absolute;
+    top: 250px;
+    /* border: solid red; */
+    justify-content: center;
+
+}
+.winner {
+    
+} 
 /* LINE STYLING */
 .lineOne {
     border-bottom: black solid;
@@ -154,4 +166,18 @@ body {
     right: 30px;
     position: absolute;
     height: 100vh;
+}
+
+/* DROP DOWN */
+
+.ringSpecifier {
+    font-size: 2rem;
+    margin: 3rem;
+}
+#ringCount {
+    font-size: 2rem;
+    width: 5rem;
+}
+#submit {
+    font-size: 2rem;
 }

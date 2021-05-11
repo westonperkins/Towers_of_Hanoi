@@ -18,6 +18,9 @@
             <div class="counter">Move Counter: <span class="counterNum">0</span></div>
             <div class="resetCounter">Reset Counter: <span class="resetCounterNum">0</span></div>
         </section>
+        <div class="winCondition">
+            <h1 class="winner">You won with <span class="winnerMoves">0</span> moves and <span class="winnerResets">0</span> resets</h1>
+        </div>
     </header>
     <section class="pillars">
         <div class="pillar pOne" data-pillar="one">
@@ -35,6 +38,19 @@
             <div class="invisible IT3"></div>
             <div class="base bThree"></div>
         </div>
+    </section>
+    <section class="ringSpecifier">
+        <label for="rings">Select difficulty by number of rings: </label>
+        <select name="rings" id="ringCount">
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit" id="submit">
     </section>
 
     <script src="/Towers_of_Hanoi/script.js"></script>
