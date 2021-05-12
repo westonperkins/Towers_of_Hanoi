@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
     <title>Towers of Hanoi</title>
 </head>
 <body>
-    <div class="lineOne"></div>
+    <!-- <div class="lineOne"></div>
     <div class="lineTwo"></div>
     <div class="lineThree"></div>
-    <div class="lineFour"></div>
+    <div class="lineFour"></div> -->
     <header class="header">
         <button class="reset">Reset</button>
+        <div class="winCondition">
+            <h1 class="winner">You won with <span class="winnerMoves">0</span> moves and <span class="winnerResets">0</span> resets</h1>
+        </div>
         <section class="counters">
             <div class="counter">Move Counter: <span class="counterNum">0</span></div>
             <div class="resetCounter">Reset Counter: <span class="resetCounterNum">0</span></div>
         </section>
-        <div class="winCondition">
-            <h1 class="winner">You won with <span class="winnerMoves">0</span> moves and <span class="winnerResets">0</span> resets</h1>
-        </div>
     </header>
     <section class="pillars">
         <div class="pillar pOne" data-pillar="one">
@@ -40,17 +42,20 @@
         </div>
     </section>
     <section class="ringSpecifier">
-        <label for="rings">Select difficulty by number of rings: </label>
-        <select name="rings" id="ringCount">
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select>
-        <br><br>
+        <div>
+            <label for="rings">Select difficulty by number of rings: </label>
+            <select name="rings" id="ringCount">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+   
         <input type="submit" value="Submit" id="submit">
+        <div class="instruct">hit submit to advance to the next level</div>
     </section>
 
     <script src="/Towers_of_Hanoi/script.js"></script>

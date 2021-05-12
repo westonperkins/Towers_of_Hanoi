@@ -1,3 +1,4 @@
+// VARIABLES
 const towerOne = document.querySelector('.tOne')
 const invisibleTONE = document.querySelector('.IT1')
 const invisibleTTWO = document.querySelector('.IT2')
@@ -13,59 +14,103 @@ let winnerResets = document.querySelector('.winnerResets')
 const winnerStatement = document.querySelector('.winner')
 const ringCount = document.querySelector('#ringCount')
 const submit = document.querySelector('#submit')
+const instruct = document.querySelector('.instruct')
 
-
+//  Initializing reset and move values
 let resetSum = 0
 let moveSum = 0
 
+
+function reload() {
+    location.reload()
+}
+// function to assign video and appropriate arguments to them
+function applyVideo(ring, width, height, aspectRatio) {
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true, video: {width: width, height: height}, video: {aspectRatio: aspectRatio} })
+          .then(function (stream) {
+            ring.srcObject = stream;
+          })
+          .catch(function (err0r) {
+              if(err0r) {
+                // window.onload = function() {
+                //     if(!window.location.hash) {
+                //         window.location = window.location + '#loaded';
+                //         window.location.reload();
+                //     }
+                // }
+                  ringOne.style.backgroundColor = 'red'
+              }
+            console.log("Something went wrong!");
+          });
+      }
+}
+
 // CREATING RINGS TO APPEND TO TOWERS
-const ringOne = document.createElement('div')
+const ringOne = document.createElement('video')
+ringOne.setAttribute("autoplay", 'true')
 ringOne.setAttribute("class", 'ring ringOne')
 ringOne.setAttribute("data-ring", '1')
 ringOne.style.width = '150px'
-ringOne.style.height = '70px'
+ringOne.style.height = '50px'
+applyVideo(ringOne, 1280, 720, 3)
 
-const ringTwo = document.createElement('div')
+const ringTwo = document.createElement('video')
+ringTwo.setAttribute("autoplay", 'true')
 ringTwo.setAttribute("class", 'ring ringTwo')
 ringTwo.setAttribute("data-ring", '2')
 ringTwo.style.width = '200px'
-ringTwo.style.height = '70px'
+ringTwo.style.height = '50px'
+applyVideo(ringTwo, 1280, 720, 4)
 
-const ringThree = document.createElement('div')
+const ringThree = document.createElement('video')
+ringThree.setAttribute("autoplay", 'true')
 ringThree.setAttribute("class", 'ring ringThree')
 ringThree.setAttribute("data-ring", '3')
 ringThree.style.width = '250px'
-ringThree.style.height = '70px'
+ringThree.style.height = '50px'
+applyVideo(ringThree, 1280, 720, 5.1)
 
-const ringFour = document.createElement('div')
+
+const ringFour = document.createElement('video')
+ringFour.setAttribute("autoplay", 'true')
 ringFour.setAttribute("class", 'ring ringFour')
 ringFour.setAttribute("data-ring", '4')
 ringFour.style.width = '300px'
-ringFour.style.height = '70px'
+ringFour.style.height = '50px'
+applyVideo(ringFour, 1280, 720, 6.1)
 
-const ringFive = document.createElement('div')
+const ringFive = document.createElement('video')
+ringFive.setAttribute("autoplay", 'true')
 ringFive.className = 'ring ringFive'
 ringFive.setAttribute("data-ring", '5')
 ringFive.style.width = '350px'
-ringFive.style.height = '70px'
+ringFive.style.height = '50px'
+applyVideo(ringFive, 1280, 720, 7.1)
 
-const ringSix = document.createElement('div')
+const ringSix = document.createElement('video')
+ringSix.setAttribute("autoplay", 'true')
 ringSix.className = 'ring ringSix'
 ringSix.setAttribute('data-ring', '6')
 ringSix.style.width = '400px'
-ringSix.style.height = '70px'
+ringSix.style.height = '50px'
+applyVideo(ringSix, 1280, 720, 8.1)
 
-const ringSeven = document.createElement('div')
+const ringSeven = document.createElement('video')
+ringSeven.setAttribute("autoplay", 'true')
 ringSeven.className = 'ring ringSeven'
 ringSeven.setAttribute('data-ring', '7')
 ringSeven.style.width = '450px'
-ringSeven.style.height = '70px'
+ringSeven.style.height = '50px'
+applyVideo(ringSeven, 1280, 720, 9.1)
 
-const ringEight = document.createElement('div')
+const ringEight = document.createElement('video')
+ringEight.setAttribute("autoplay", 'true')
 ringEight.className = 'ring ringEight'
 ringEight.setAttribute('data-ring', '8')
 ringEight.style.width = '500px'
-ringEight.style.height = '70px'
+ringEight.style.height = '50px'
+applyVideo(ringEight, 1280, 720, 10.1)
 
 
 // QUERY SELECTOR FOR ALL RINGS
@@ -82,14 +127,12 @@ let selectedRing = ''
 let previouslySelectedRing = ''
 let selectedTower = ''
 
+// Ring setup function
 function ringSetUp(tower, ring){
     tower.append(ring)
 }
 
-
-
 // RING NUMBER SETUP
-
 function threeRings() {
     ringSetUp(invisibleTONE, ringThree)
     ringSetUp(invisibleTONE, ringTwo)
@@ -137,33 +180,32 @@ function eightRings() {
 }
 
 
-
 // LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS
-function check() {
+function ringBottomStyling() {
     for(let i = 0; i < invis.length; i++) {
         if(invis[i].childNodes[0]){
             invis[i].childNodes[0].style.bottom = '0px'
         }
         if(invis[i].childNodes[1]) {
-            invis[i].childNodes[1].style.bottom = '76px'
+            invis[i].childNodes[1].style.bottom = '60px'
         }
         if(invis[i].childNodes[2]) {
-            invis[i].childNodes[2].style.bottom = '152px'
+            invis[i].childNodes[2].style.bottom = '120px'
         }
         if(invis[i].childNodes[3]) {
-            invis[i].childNodes[3].style.bottom = '228px'
+            invis[i].childNodes[3].style.bottom = '180px'
         }
         if(invis[i].childNodes[4]) {
-            invis[i].childNodes[4].style.bottom = '304px'
+            invis[i].childNodes[4].style.bottom = '240px'
         }
         if(invis[i].childNodes[5]) {
-            invis[i].childNodes[5].style.bottom = '380px'
+            invis[i].childNodes[5].style.bottom = '300px'
         }
         if(invis[i].childNodes[6]) {
-            invis[i].childNodes[6].style.bottom = '456px'
+            invis[i].childNodes[6].style.bottom = '360px'
         }
         if(invis[i].childNodes[7]) {
-            invis[i].childNodes[7].style.bottom = '532px'
+            invis[i].childNodes[7].style.bottom = '420px'
         }
         if(invis[i].childNodes === []) {
             console.log('error')
@@ -171,9 +213,9 @@ function check() {
     }
 }
 
-// FIVE RINGS WILL BE DEFAULT
-fiveRings()
-check()
+// 3 RINGS WILL BE DEFAULT
+threeRings()
+ringBottomStyling()
 
 function clearRings() {
     if(invisibleTONE.hasChildNodes(ringOne)) {
@@ -202,12 +244,13 @@ function clearRings() {
     }
 }
 
-
-console.log(invisibleTONE.childNodes)
-
 // SUBMIT BUTTON
 submit.addEventListener('click', () => {
-    console.log(ringCount.value)
+    winnerStatement.style.opacity = '0'
+    counterNum.innerText = 0
+    moveSum = 0
+    resetNum.innerText = 0
+    resetSum = 0
     if(ringCount.value == 3) {
         threeRings()
         clearRings()
@@ -233,29 +276,30 @@ submit.addEventListener('click', () => {
         clearRings()
         eightRings()
     }
-    check()
+    ringBottomStyling()
+    instruct.style.opacity = '0'
 })
 
 // RESET BUTTON 
 reset.addEventListener('click', () => {
     if(ringCount.value == 3) {
         threeRings()
-        check()
+        ringBottomStyling()
     } else if(ringCount.value == 4) {
         fourRings()
-        check()
+        ringBottomStyling()
     } else if(ringCount.value == 5) {
         fiveRings()
-        check()
+        ringBottomStyling()
     } else if(ringCount.value == 6) {
         sixRings()
-        check()
+        ringBottomStyling()
     } else if(ringCount.value == 7) {
         sevenRings()
-        check()
+        ringBottomStyling()
     } else if(ringCount.value == 8) {
         eightRings()
-        check()
+        ringBottomStyling()
     }
     
     if(selectedRing) {
@@ -269,21 +313,22 @@ reset.addEventListener('click', () => {
 // DROP RING
 function resetRing(ring) {
     ring.style.transform = 'translateY(0vh)'
-    ring.style.bottom = '0' + ((selectedTower.childNodes.length - 1) * 75) + 'px'
+    ring.style.bottom = '0' + ((selectedTower.childNodes.length - 1) * 60) + 'px'
 }
 // RAISE RING
 function setRing(x) {
-    console.log(selectedRing.classList[1])
     // ENSURING THAT NO TWO RINGS CAN BE UP AT THE SAME TIME 
     if(previouslySelectedRing) {
-        console.log(previouslySelectedRing.classList[1] + ' prev')
+        // console.log(previouslySelectedRing.classList[1] + ' prev')
         previouslySelectedRing.style.transform = 'translateY(0vh)'
     } else if(selectedRing === previouslySelectedRing) {
         previouslySelectedRing = ''
     } else {
-        console.log('there is no previously selected ring')
+        // console.log('there is no previously selected ring')
     }
-    selectedRing.style.transform = 'translateY(' + (-1*(150 + (x * 75))) + 'px)'
+    selectedRing.style.transform = 'translateY(' + (-1*(10 + (x * 60))) + 'px)'
+    console.log(x)
+    selectedRing.style.transition = 'transform 0.15s'
 }
 
 
@@ -294,12 +339,11 @@ function moveRings(ring, towerTo) {
         moveSum += 1
         counterNum.innerText = moveSum
         winnerMoves.innerText = moveSum
-        check()
+        ringBottomStyling()
     }
 }
 
-// ABLE TO MOVE RINGS FROM PILLAR TO PILLAR, *********STILL NEED TO MAKE IT SO THAT WHEN ONE RING IS RAISED(setRing), THE OTHER RINGS CANNOT BE RAISED AS WELL
-
+// ABLE TO MOVE RINGS FROM PILLAR TO PILLAR
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if((e.target.classList[0] === 'ring') && (e.target === e.target.parentNode.childNodes[e.target.parentNode.childNodes.length-1])) {
@@ -326,17 +370,22 @@ for(let i = 0; i < invis.length; i++) {
                     moveRings(selectedRing, selectedTower)
                     resetRing(selectedRing)
                     selectedRing = ''
-                    if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
-                        console.log("GAMNE WON")
+                    if(invisibleTTWO.childNodes.length === ringCount.value || invisibleTTHREE.childNodes.length === ringCount.value) {
                         winnerStatement.style.opacity = '100'
+                        ringCount.value = parseInt(ringCount.value) + 1
+                        instruct.style.opacity = '100'
+                       
+                    
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         moveRings(selectedRing, selectedTower)
                         resetRing(selectedRing)
-                        if(invisibleTTWO.childNodes.length === 5 || invisibleTTHREE.childNodes.length === 5) {
-                            console.log("GAME WON")
+                        if(invisibleTTWO.childNodes.length == ringCount.value || invisibleTTHREE.childNodes.length == ringCount.value) {
                             winnerStatement.style.opacity = '100'
+                            ringCount.value = parseInt(ringCount.value) + 1
+                            instruct.style.opacity = '100'
+                        
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the ring on this tower is not wide enough')
@@ -348,6 +397,11 @@ for(let i = 0; i < invis.length; i++) {
 }
 
 winnerStatement.style.opacity = '0'
+
+
+
+
+
 
 
 

@@ -1,28 +1,49 @@
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    width: 100vw;
+    color: whitesmoke;
+    height: 100vh;
+    background-color: rgb(40, 40, 40);
+    font-family: 'Roboto Mono';
+    /* background-image:url(/Towers_of_Hanoi/img/binary.gif); */
+    /* background: whitesmoke; */
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
-    height: 100vh;
-    background-color: beige
-    ;
+
+.header {
+    grid-row: 1 / 2;
+}
+.ringSpecifier {
+    grid-row: 3 / 4;
 }
 /* TOWER STYLING */
 
 .base {
     width: 400px;
-    height: 30px;
-    background: gray;
-    margin: 0rem 4rem;
+    height: 10px;
+    /* background: gray; */
+    margin: 0rem 0rem;
 }
 
 .tower {
-    width: 50px;
-    height: 500px;
+    width: 5px;
+    height: 525px;
     background-color: gray;
+
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
     display: flex;
     align-items: flex-end;
 }
@@ -34,22 +55,32 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
     /* border: brown solid; */
+    max-height: 500px;
     
 }
 
 .pillars {
     display: flex;
     justify-content: center;
-    position: relative;
-    margin-top: 20rem;
+    /* position: relative; */
+    /* margin-top: 20rem; */
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    /* border: red solid; */
+    /* width: 50%; */
+
 }
 
 .pillar {
-    margin: 0 4rem;
+    margin: 0 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* width: 50%; */
+   
     /* border: black solid; */
 }
 
@@ -97,11 +128,17 @@ body {
     position: absolute;
     top: 30;
     /* bottom: 300px; */
+    /* background-image:url(/Towers_of_Hanoi//img//deer1.jpeg);
+    background-size: 150px 50px;
+    object-fit:scale-down;
+    background-repeat: repeat; */
 }
 
 .ring {
-    border: black solid;
-    /* background-color: orange; */
+    border: rgb(68, 66, 66) solid;
+    box-shadow: -1px 5px 0px 1px rgb(164, 162, 162);
+    border-radius: 50%;
+    background-color: white;
 }
 
 
@@ -115,32 +152,51 @@ body {
 }
 /* COUNTER STYLING */ 
 .counters {
-    margin: 3rem;
+    /* margin: 3rem; */
     display: flex;
     flex-direction: column;
-    font-size: 2rem;
+    font-size: 1.3rem;
+    margin: 1rem;
 }
 /* RESET BUTTON */
 
 .reset {
-    width: 6rem;
-    height: 6rem;
-    margin: 3rem;
-    
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+}
+
+#submit,
+.reset,
+#ringCount {
+color: black;
+background-color: rgb(167, 166, 166);
+font-family: 'Roboto Mono';
+width: 6rem;
+height: 3rem;
+text-align: center;
+}
+#submit:hover,
+.reset:hover,
+#ringCount:hover{
+    color: red;
+    box-shadow: 1px 1px 5px 1px rgb(255, 0, 0);
 }
 
 /* WIN STATEMENT */
 .winCondition {
     display: flex;
     width: 100vw;
-    position: absolute;
-    top: 250px;
+    /* position: absolute;
+    top: 250px; */
     /* border: solid red; */
     justify-content: center;
+    margin: 1rem;
 
 }
-.winner {
-    
+.winCondition {
+    width: 50rem;
+    /* border: solid red; */
 } 
 /* LINE STYLING */
 .lineOne {
@@ -171,13 +227,31 @@ body {
 /* DROP DOWN */
 
 .ringSpecifier {
-    font-size: 2rem;
-    margin: 3rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #ringCount {
-    font-size: 2rem;
-    width: 5rem;
+    font-size: 1.3rem;
+    margin: 1rem;
 }
 #submit {
-    font-size: 2rem;
+    font-size: 1.2rem;
+}
+
+@keyframes bounce { 
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+  }
+.instruct {
+    color: yellow;
+    font-size: .8rem;
+    margin-left: 1rem;
+    animation: bounce 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    opacity: 0;
 }
