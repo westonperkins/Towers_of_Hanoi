@@ -1,8 +1,8 @@
 # Towers_of_Hanoi
 ### Towers of hanoi game built with:
-- css
-- html 
-- javascript 
+- Css
+- Html 
+- Javascript 
 
 ##### Play the game: 
 https://westonperkins.github.io/Towers_of_Hanoi/
