@@ -40,7 +40,6 @@ button, input, select {
     width: 5px;
     height: 525px;
     background-color: gray;
-
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -255,4 +254,20 @@ text-align: center;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     opacity: 0;
+}
+
+
+
+@media (max-width: 415px) {
+    .pillars {
+        flex-direction: column;
+
+    }
+    .invisible {
+        height: 225;
+    }
+    .tower {
+        width: 5px;
+        height: 225px;
+    }
 }

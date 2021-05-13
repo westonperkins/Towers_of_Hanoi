@@ -323,7 +323,6 @@ function setRing(x) {
         // console.log('there is no previously selected ring')
     }
     selectedRing.style.transform = 'translateY(' + (-1*(10 + (x * 60))) + 'px)'
-    console.log(x)
     selectedRing.style.transition = 'transform 0.15s'
 }
 
@@ -362,6 +361,7 @@ for(let i = 0; i < invis.length; i++) {
                 alert('you must only choose a ring')
             } else {
                 selectedTower = e.target
+
                 if(selectedTower.childNodes.length === 0) {
                     moveRings(selectedRing, selectedTower)
                     resetRing(selectedRing)
@@ -393,7 +393,7 @@ for(let i = 0; i < invis.length; i++) {
                             
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
-                        alert('the ring on this tower is not wide enough')
+                        alert('the highest ring on this tower is too small for this ring')
                     }
                 }
             }
