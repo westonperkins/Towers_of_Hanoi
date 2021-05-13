@@ -15,15 +15,15 @@ const winnerStatement = document.querySelector('.winner')
 const ringCount = document.querySelector('#ringCount')
 const submit = document.querySelector('#submit')
 const instruct = document.querySelector('.instruct')
+const body = document.querySelector('body')
+
+
 
 //  Initializing reset and move values
 let resetSum = 0
 let moveSum = 0
 
 
-function reload() {
-    location.reload()
-}
 // function to assign video and appropriate arguments to them
 function applyVideo(ring, width, height, aspectRatio) {
     if (navigator.mediaDevices.getUserMedia) {
@@ -32,15 +32,7 @@ function applyVideo(ring, width, height, aspectRatio) {
             ring.srcObject = stream;
           })
           .catch(function (err0r) {
-              if(err0r) {
-                // window.onload = function() {
-                //     if(!window.location.hash) {
-                //         window.location = window.location + '#loaded';
-                //         window.location.reload();
-                //     }
-                // }
-                  ringOne.style.backgroundColor = 'red'
-              }
+            //   location.reload()
             console.log("Something went wrong!");
           });
       }
@@ -69,7 +61,7 @@ ringThree.setAttribute("class", 'ring ringThree')
 ringThree.setAttribute("data-ring", '3')
 ringThree.style.width = '250px'
 ringThree.style.height = '50px'
-applyVideo(ringThree, 1280, 720, 5.1)
+applyVideo(ringThree, 1280, 720, 5)
 
 
 const ringFour = document.createElement('video')
@@ -78,7 +70,7 @@ ringFour.setAttribute("class", 'ring ringFour')
 ringFour.setAttribute("data-ring", '4')
 ringFour.style.width = '300px'
 ringFour.style.height = '50px'
-applyVideo(ringFour, 1280, 720, 6.1)
+applyVideo(ringFour, 1280, 720, 6)
 
 const ringFive = document.createElement('video')
 ringFive.setAttribute("autoplay", 'true')
@@ -86,7 +78,7 @@ ringFive.className = 'ring ringFive'
 ringFive.setAttribute("data-ring", '5')
 ringFive.style.width = '350px'
 ringFive.style.height = '50px'
-applyVideo(ringFive, 1280, 720, 7.1)
+applyVideo(ringFive, 1280, 720, 7)
 
 const ringSix = document.createElement('video')
 ringSix.setAttribute("autoplay", 'true')
@@ -94,7 +86,7 @@ ringSix.className = 'ring ringSix'
 ringSix.setAttribute('data-ring', '6')
 ringSix.style.width = '400px'
 ringSix.style.height = '50px'
-applyVideo(ringSix, 1280, 720, 8.1)
+applyVideo(ringSix, 1280, 720, 8)
 
 const ringSeven = document.createElement('video')
 ringSeven.setAttribute("autoplay", 'true')
@@ -278,6 +270,10 @@ submit.addEventListener('click', () => {
     }
     ringBottomStyling()
     instruct.style.opacity = '0'
+    body.style.backgroundImage = ''
+    reset.style.boxShadow = ''
+    submit.style.boxShadow = ''
+    ringCount.style.boxShadow = ''
 })
 
 // RESET BUTTON 
@@ -374,8 +370,12 @@ for(let i = 0; i < invis.length; i++) {
                         winnerStatement.style.opacity = '100'
                         ringCount.value = parseInt(ringCount.value) + 1
                         instruct.style.opacity = '100'
-                       
-                    
+                        body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'                      
+                        reset.style.boxShadow = '1px 1px 30px 10px white'
+                        submit.style.boxShadow = '1px 1px 30px 10px white'
+                        ringCount.style.boxShadow = '1px 1px 30px 10px white'
+                        
+                        
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -385,7 +385,12 @@ for(let i = 0; i < invis.length; i++) {
                             winnerStatement.style.opacity = '100'
                             ringCount.value = parseInt(ringCount.value) + 1
                             instruct.style.opacity = '100'
-                        
+                            body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'
+                            reset.style.boxShadow = '1px 1px 30px 10px white'
+                            submit.style.boxShadow = '1px 1px 30px 10px white'
+                            ringCount.style.boxShadow = '1px 1px 30px 10px white'
+                            
+                            
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the ring on this tower is not wide enough')
@@ -402,7 +407,7 @@ winnerStatement.style.opacity = '0'
 
 
 
-
+// body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'
 
 
 

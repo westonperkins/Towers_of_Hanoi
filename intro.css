@@ -1,0 +1,39 @@
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 1px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+a {
+	color: rgb(255, 0, 0);
+	text-decoration: none;
+	font-size: 3rem;
+}
+body {
+    background-image:url(/Towers_of_Hanoi/img/cloud.png);
+    background-position:center;
+    background-size: cover;
+	background-repeat: no-repeat;
+	width: 100vw;
+	height: 100vh;
+	font-family: 'Roboto Mono';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 6rem;
+}
+.note {
+	font-size: 2rem;
+}

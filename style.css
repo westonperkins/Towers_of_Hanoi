@@ -8,10 +8,9 @@ body {
     height: 100vh;
     background-color: rgb(40, 40, 40);
     font-family: 'Roboto Mono';
-    /* background-image:url(/Towers_of_Hanoi/img/binary.gif); */
-    /* background: whitesmoke; */
-    background-repeat: no-repeat;
-    background-size: 100vw;
+    background-image:url(/Towers_of_Hanoi/img/cloud.png);
+    background-position:center;
+    background-size: cover;
 }
 
 * {
@@ -19,7 +18,9 @@ body {
     padding: 0;
 }
 
-
+button, input, select {
+    cursor: pointer;
+}
 .header {
     grid-row: 1 / 2;
 }
