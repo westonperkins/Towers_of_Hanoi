@@ -170,7 +170,16 @@ function eightRings() {
     ringSetUp(invisibleTONE, ringTwo)
     ringSetUp(invisibleTONE, ringOne)
 }
-
+// function eightRingstwo() {
+//     ringSetUp(invisibleTTHREE, ringEight)
+//     ringSetUp(invisibleTTHREE, ringSeven)
+//     ringSetUp(invisibleTTHREE, ringSix)
+//     ringSetUp(invisibleTTHREE, ringFive)
+//     ringSetUp(invisibleTTHREE, ringFour)
+//     ringSetUp(invisibleTTHREE, ringThree)
+//     ringSetUp(invisibleTTHREE, ringTwo)
+//     ringSetUp(invisibleTTHREE, ringOne)
+// }
 
 // LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS
 function ringBottomStyling() {
@@ -320,6 +329,7 @@ reset.addEventListener('click', () => {
 function resetRing(ring) {
     ring.style.transform = 'translateY(0vh)'
     ring.style.bottom = '0' + ((selectedTower.childNodes.length - 1) * 60) + 'px'
+    selectedRing = ''
 }
 // RAISE RING
 function setRing(x) {
@@ -372,7 +382,7 @@ for(let i = 0; i < invis.length; i++) {
         }
     })
 }
-    
+
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if(e.target.classList[0] == "invisible") {
