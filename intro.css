@@ -37,3 +37,17 @@ h1 {
 .note {
 	font-size: 2rem;
 }
+
+@keyframes bounce { 
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+  }
+h1 {
+    animation: bounce 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.message {
+	font-size: 0.9rem;
+	color: blue;
+}

@@ -39,7 +39,7 @@ button, input, select {
 .tower {
     width: 5px;
     height: 525px;
-    background-color: gray;
+    background-color: rgb(75, 75, 75);
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;

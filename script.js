@@ -238,11 +238,6 @@ function clearRings() {
 
 // SUBMIT BUTTON
 submit.addEventListener('click', () => {
-    winnerStatement.style.opacity = '0'
-    counterNum.innerText = 0
-    moveSum = 0
-    resetNum.innerText = 0
-    resetSum = 0
     if(ringCount.value == 3) {
         threeRings()
         clearRings()
@@ -268,12 +263,25 @@ submit.addEventListener('click', () => {
         clearRings()
         eightRings()
     }
+    
+    if(selectedRing) {
+        resetRing(selectedRing)
+    } else if(previouslySelectedRing) {
+        resetRing(previouslySelectedRing)
+
+    }
+    winnerStatement.style.opacity = '0'
+    counterNum.innerText = 0
+    moveSum = 0
+    resetNum.innerText = 0
+    resetSum = 0
     ringBottomStyling()
     instruct.style.opacity = '0'
     body.style.backgroundImage = ''
     reset.style.boxShadow = ''
     submit.style.boxShadow = ''
     ringCount.style.boxShadow = ''
+    reset.style.opacity = '100'
 })
 
 // RESET BUTTON 
@@ -304,6 +312,8 @@ reset.addEventListener('click', () => {
     resetSum += 1
     resetNum.innerText = resetSum
     winnerResets.innerText = resetSum
+    previouslySelectedRing = ''
+    selectedRing = ''
 })
 
 // DROP RING
@@ -315,12 +325,11 @@ function resetRing(ring) {
 function setRing(x) {
     // ENSURING THAT NO TWO RINGS CAN BE UP AT THE SAME TIME 
     if(previouslySelectedRing) {
-        // console.log(previouslySelectedRing.classList[1] + ' prev')
         previouslySelectedRing.style.transform = 'translateY(0vh)'
-    } else if(selectedRing === previouslySelectedRing) {
+    } else if(selectedRing == previouslySelectedRing) {
         previouslySelectedRing = ''
     } else {
-        // console.log('there is no previously selected ring')
+        console.log('')
     }
     selectedRing.style.transform = 'translateY(' + (-1*(10 + (x * 60))) + 'px)'
     selectedRing.style.transition = 'transform 0.15s'
@@ -335,6 +344,14 @@ function moveRings(ring, towerTo) {
         counterNum.innerText = moveSum
         winnerMoves.innerText = moveSum
         ringBottomStyling()
+        console.log("hi " + selectedRing.classList[1])
+        if(previouslySelectedRing) {
+            console.log('bye ' + previouslySelectedRing.classList[1])
+
+        }
+    } else {
+        selectedRing = ''
+        console.log('error')
     }
 }
 
@@ -350,6 +367,8 @@ for(let i = 0; i < invis.length; i++) {
                 selectedRing = e.target
                 setRing(e.target.dataset['ring'])
             }
+        }else {
+            // console.log('error')
         }
     })
 }
@@ -357,8 +376,8 @@ for(let i = 0; i < invis.length; i++) {
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if(e.target.classList[0] == "invisible") {
-            if(selectedRing === null) {
-                alert('you must only choose a ring')
+            if(selectedRing == '') {
+                console.log('you must choose a ring')
             } else {
                 selectedTower = e.target
 
@@ -371,11 +390,9 @@ for(let i = 0; i < invis.length; i++) {
                         ringCount.value = parseInt(ringCount.value) + 1
                         instruct.style.opacity = '100'
                         body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'                      
-                        reset.style.boxShadow = '1px 1px 30px 10px white'
+                        reset.style.opacity = '0'
                         submit.style.boxShadow = '1px 1px 30px 10px white'
                         ringCount.style.boxShadow = '1px 1px 30px 10px white'
-                        
-                        
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -386,14 +403,14 @@ for(let i = 0; i < invis.length; i++) {
                             ringCount.value = parseInt(ringCount.value) + 1
                             instruct.style.opacity = '100'
                             body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'
-                            reset.style.boxShadow = '1px 1px 30px 10px white'
+                            reset.style.opacity = '0'
                             submit.style.boxShadow = '1px 1px 30px 10px white'
-                            ringCount.style.boxShadow = '1px 1px 30px 10px white'
-                            
-                            
+                            ringCount.style.boxShadow = '1px 1px 30px 10px white'   
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the highest ring on this tower is too small for this ring')
+                    } else {
+                        console.log('error')
                     }
                 }
             }
