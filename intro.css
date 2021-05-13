@@ -40,10 +40,10 @@ h1 {
 
 @keyframes bounce { 
     0% { transform: translateY(0); }
-    100% { transform: translateY(10px); }
+    100% { transform: translateY(50px); }
   }
 h1 {
-    animation: bounce 0.5s;
+    animation: bounce 0.7s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
