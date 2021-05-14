@@ -17,7 +17,8 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 <br>
 
 ![image](/Towers_of_Hanoi/img/gamescreenshotone.png)
-( https://www.dropbox.com/s/j6sqv2k9v3eokz4/Screen%20Shot%202021-05-13%20at%201.11.58%20AM.png?dl=0 **if image does not load*)
+
+- ( https://www.dropbox.com/s/j6sqv2k9v3eokz4/Screen%20Shot%202021-05-13%20at%201.11.58%20AM.png?dl=0 **if image does not load*)
 ##### Key
 - Top right displays the amount of moves you've made during a given level/turn as well as the amount of times you've had to reset the playing field during the game level.
 - Underneath the towers displays a drop down menu where you can choose between 3 - 8 rings. After you successfully beat a given set of rings, the following number of rings will be automatically suggested to you, if you wish to play on just hit `submit` as the new number will be rendered automatically within the dropdown
@@ -28,22 +29,28 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 ![image](/Towers_of_Hanoi/img/wireframeOne.png)
 Very basic layout of the game. First drawing to illustrate general themes and game landscape.
-( https://www.dropbox.com/s/rjwvc4bw7ro700g/Screen%20Shot%202021-05-13%20at%2010.59.49%20PM.png?dl=0 **if image does not load*)
+
+- ( https://www.dropbox.com/s/rjwvc4bw7ro700g/Screen%20Shot%202021-05-13%20at%2010.59.49%20PM.png?dl=0 **if image does not load*)
 
 ---
 
-#### MVP
+### MVP
 The game needs to be playable at its core. Meaning:
 - The user needs to be able to move pieces from one pillar to another and with appropriate order. 
 - The user needs to be able to lose and win and definitely reset if they get stuck. Because the game is capable of producing a 'dead end' scenario without winning, you need to be able to reset. This would technically be characterized as losing since the chance of winning after this result is met is impossible. 
 - Overall, the user must be able to move the rings from one pillar to the other, the game also must recognize what is a valid or invalid maneuver. 
 - The game must recognize a win and give the player the option of resetting the field if there is no valid move to make.
 
+---
 
-#### User Stories
+### User Stories
 Users are anyone who might find the game interesting &/or stimulating the users will want to be able to play the game but more so to be challenged. Because it has the agility to be a fairly simple game, it must at least progress in difficulty , whether that's a quick progression or a very long one. Without assuming the user knows how to play the game the user might want some sort of visual walkthrough on load, some sort of instructions that will be simpler and easier to digest than the ReadMe. Either way the user wants the game to be challenging but also easy to play from a GUI perspective. This means the interface cant be clunky and hard to use, it must be intuitive and smooth.
 
-#### Origional 'Stretch Goals' before starting build
+
+--- 
+### Strech Goals
+
+##### Origional 'Stretch Goals' before starting build
 - animations for movement / loading screen / intro sequence / visual instruction manual
 - drag and drop from pillar to pillar
 - array key integration
@@ -55,7 +62,7 @@ Users are anyone who might find the game interesting &/or stimulating the users 
 - a really nice looking GUI
 - API integration (dont know for what yet but definitely can think of something
 
-#### 'Stretch Goals' after completion
+##### 'Stretch Goals' after completion
 *** I felt like my origional stretch goals were mainly just flashy and didn't have anything to do with the game itself, they were just general additives that would make the GUI look more compelling, but if i were to add more they would have to do with Towers of Hanoi specifically as a puzzle and how to make it more enjoyable or competetive 
    - Able to create a 'computer solve' button where if clicked the computer solves the puzzle with the minimum amount of moves.
         - Currently the user has no idea whether or not they are winning with max efficiency or not. I feel like a win is cool but I would like to write a sorting algorithm that calculates minimum amount of moves for X amount of rings with Y amount of pillars, for my game there will always bve 3 pillars though.
