@@ -32,7 +32,6 @@ button, input, select {
 .base {
     width: 400px;
     height: 10px;
-    /* background: gray; */
     margin: 0rem 0rem;
 }
 
@@ -57,21 +56,14 @@ button, input, select {
     justify-content: flex-end;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    /* border: brown solid; */
     max-height: 500px;
-    
 }
 
 .pillars {
     display: flex;
     justify-content: center;
-    /* position: relative; */
-    /* margin-top: 20rem; */
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    /* border: red solid; */
-    /* width: 50%; */
-
 }
 
 .pillar {
@@ -79,9 +71,6 @@ button, input, select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 50%; */
-   
-    /* border: black solid; */
 }
 
 /* RING STYLING */
@@ -89,49 +78,37 @@ button, input, select {
 .ringEight {
     position: absolute;
     top: 30;
-    /* bottom: 0px; */
 }
 .ringSeven {
     position: absolute;
     top: 30;
-    /* bottom: 0px; */
 }
 .ringSix {
     position: absolute;
     top: 30;
-    /* bottom: 0px; */
 }
 .ringFive {
     position: absolute;
     top: 30;
-    /* bottom: 0px; */
 }
 
 .ringFour {
     position: absolute;
     top: 30;
-    /* bottom: 75px; */
 }
 
 .ringThree {
     position: absolute;
     top: 30;
-    /* bottom: 150px; */
 }
 
 .ringTwo {
     position: absolute;
     top: 30;
-    /* bottom: 225px; */
 }
 .ringOne {
     position: absolute;
     top: 30;
-    /* bottom: 300px; */
-    /* background-image:url(/Towers_of_Hanoi//img//deer1.jpeg);
-    background-size: 150px 50px;
-    object-fit:scale-down;
-    background-repeat: repeat; */
 }
 
 .ring {
@@ -255,7 +232,6 @@ text-align: center;
     animation-iteration-count: infinite;
     opacity: 0;
 }
-
 
 
 @media (max-width: 415px) {

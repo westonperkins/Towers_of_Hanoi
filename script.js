@@ -17,12 +17,9 @@ const submit = document.querySelector('#submit')
 const instruct = document.querySelector('.instruct')
 const body = document.querySelector('body')
 
-
-
 //  Initializing reset and move values
 let resetSum = 0
 let moveSum = 0
-
 
 // function to assign video and appropriate arguments to them
 function applyVideo(ring, width, height, aspectRatio) {
@@ -104,15 +101,8 @@ ringEight.style.width = '500px'
 ringEight.style.height = '50px'
 applyVideo(ringEight, 1280, 720, 10.1)
 
-
 // QUERY SELECTOR FOR ALL RINGS
 const rings = document.querySelectorAll('.ring')
-
-
-// TOWER ARRAYS, MIGHT NOT USE
-// let towerOneArr = [ringOne, ringTwo, ringThree, ringFour, ringFive]
-// let towerTwoArr = []
-// let towerThreeArr = []
 
 // SETTING UP GAME LOGIC WITH RINGS ON PILLARS
 let selectedRing = ''
@@ -170,16 +160,6 @@ function eightRings() {
     ringSetUp(invisibleTONE, ringTwo)
     ringSetUp(invisibleTONE, ringOne)
 }
-// function eightRingstwo() {
-//     ringSetUp(invisibleTTHREE, ringEight)
-//     ringSetUp(invisibleTTHREE, ringSeven)
-//     ringSetUp(invisibleTTHREE, ringSix)
-//     ringSetUp(invisibleTTHREE, ringFive)
-//     ringSetUp(invisibleTTHREE, ringFour)
-//     ringSetUp(invisibleTTHREE, ringThree)
-//     ringSetUp(invisibleTTHREE, ringTwo)
-//     ringSetUp(invisibleTTHREE, ringOne)
-// }
 
 // LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS
 function ringBottomStyling() {
@@ -429,79 +409,3 @@ for(let i = 0; i < invis.length; i++) {
 }
 
 winnerStatement.style.opacity = '0'
-
-
-
-
-
-// body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'
-
-
-
-
-
-
-
-
-
-
-// MIGHT NOT USE, CLASSES AND METHODS FOR POTENTIAL BACKEND
-
-class Ring {
-    constructor(width) {
-        this.width = width
-    }
-}
-
-const rOne = new Ring(1)
-const rTwo = new Ring(2)
-const rThree = new Ring(3)
-const rFour = new Ring(4)
-const rFive = new Ring(5)
-
-
-class Tower {
-    constructor(name, rings) {
-        this.name = name
-        this.rings = rings
-    }
-    moveRing(towerFrom, towerTo) {
-        if(towerFrom.name === towerTo.name) {
-           console.log('nothing happened')
-        } else if(towerFrom.rings.length > 0) {
-            if(towerTo.rings.length === 0) {
-                let ringMove = towerFrom.rings.shift()
-                towerTo.rings.unshift(ringMove)
-                console.log(`worked: tower ${towerTo.name} had no rings. you moved ring #${towerTo.rings[0].width}`)
-            } else if(towerTo.rings.length > 0) {
-                if(towerTo.rings[0].width > towerFrom.rings[0].width) {
-                    let ringMove = towerFrom.rings.shift()
-                    towerTo.rings.unshift(ringMove)
-                    console.log(`worked: you moved ring #${towerTo.rings[0].width} on top of ring #${towerTo.rings[1].width} on tower ${towerTo.name}`)
-                    if(towerTo != tOne && towerTo.rings === [rOne, rTwo, rThree, rFour, rFive]) {
-                        // win condition
-                        console.log('win')
-                    }
-                } else if(towerTo.rings[0].width < towerFrom.rings[0].width) {
-                    console.log(`invalid move. ring #${towerFrom.rings[0].width} is bigger than ring #${towerTo.rings[0].width} ...`)
-                }
-            } else {
-               console.log('error')
-            }
-        } else if(towerFrom.rings.length === 0) {
-            console.log(`Tower ${towerFrom.name} does not have rings.. try another tower`)
-        } else {
-            console.log('error')
-        }
-    }
-}
-
-const tOne = new Tower('one', [rOne, rTwo, rThree, rFour, rFive])
-const tTwo = new Tower('two', [])
-const tThree = new Tower('three', [])
-
-
-
-
-
-
