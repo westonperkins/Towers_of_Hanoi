@@ -11,6 +11,8 @@ body {
     background-image:url(/Towers_of_Hanoi/img/cloud.png);
     background-position:center;
     background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 * {
@@ -124,12 +126,10 @@ button, input, select {
 .header {
     display: flex;
     width: 100vw;
-    /* border: orange solid; */
     justify-content: space-between;
 }
 /* COUNTER STYLING */ 
 .counters {
-    /* margin: 3rem; */
     display: flex;
     flex-direction: column;
     font-size: 1.3rem;
@@ -164,16 +164,12 @@ text-align: center;
 .winCondition {
     display: flex;
     width: 100vw;
-    /* position: absolute;
-    top: 250px; */
-    /* border: solid red; */
     justify-content: center;
     margin: 1rem;
 
 }
 .winCondition {
     width: 50rem;
-    /* border: solid red; */
 } 
 /* LINE STYLING */
 .lineOne {
@@ -233,17 +229,68 @@ text-align: center;
     opacity: 0;
 }
 
+.mobile {
+    display: none;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: red;
+    font-size: 2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 
-@media (max-width: 415px) {
-    .pillars {
-        flex-direction: column;
+}
+@media (max-width: 1400px) {
+    .pillar {
+        margin: 0;
+    }
+    .ringEight {
+        width: 225px !important;
+    }
+    .ringSeven {
+        width: 200px !important;
+    }
+    .ringSix {
+        width: 175px !important;
+    }
+    .ringFive {
+        width: 150px !important;
+    }
+    
+    .ringFour {
+        width: 125px !important;
+    }
+    
+    .ringThree {
+        width: 100px !important;
+    }
+    
+    .ringTwo {
+        width: 75px !important;
+    }
+    .ringOne {
+        width: 50px !important;
+    }
+}
+@media (max-width: 1195px) {
+    .mobile {
+        opacity: 100;
+        z-index: 1;
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    body {
+        width: 0vw;
+        height: 0vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
 
-    }
-    .invisible {
-        height: 225;
-    }
-    .tower {
-        width: 5px;
-        height: 225px;
-    }
 }

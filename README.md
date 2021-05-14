@@ -16,7 +16,12 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 <br>
 
+### Without camera access
 ![image](img/gamescreenshotone.png)
+
+### With camera access
+![image](img/cameraworkingscreen.png)
+**does not have any effect on number of rings*
 
 
 ##### Key

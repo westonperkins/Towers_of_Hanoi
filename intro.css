@@ -36,6 +36,7 @@ h1 {
 }
 .note {
 	font-size: 2rem;
+	text-align: center;
 }
 
 @keyframes bounce { 
@@ -50,4 +51,32 @@ h1 {
 .message {
 	font-size: 0.9rem;
 	color: blue;
+}
+
+
+@media (max-width:450px) {
+	body {
+		width: 100vw;
+	}
+	h1 {
+		font-size: 2rem;
+	}
+	.note {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+	#videoElement {
+		width: 120vw;
+		
+		/* margin-left: 50vw; */
+	}
+	body {
+		width: 100vw;
+		height: 100vh;
+	}
 }
