@@ -16,7 +16,7 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 <br>
 
-![image](/Towers_of_Hanoi/img/gamescreenshotone.png)
+![image](img/gamescreenshotone.png)
 
 - ( https://www.dropbox.com/s/j6sqv2k9v3eokz4/Screen%20Shot%202021-05-13%20at%201.11.58%20AM.png?dl=0 **if image does not load*)
 ##### Key
