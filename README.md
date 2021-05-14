@@ -16,7 +16,7 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 <br>
 
-![image](/Towers_of_Hanoi/img/gamescreenshotone.png)
+![image](/Users/westonperkins/Desktop/sei_GA/projects/PROJECT_ONE/Towers_of_Hanoi/img/gamescreenshotone.png)
 ##### Key
 - Top right displays the amount of moves you've made during a given level/turn as well as the amount of times you've had to reset the playing field during the game level.
 - Underneath the towers displays a drop down menu where you can choose between 3 - 8 rings. After you successfully beat a given set of rings, the following number of rings will be automatically suggested to you, if you wish to play on just hit `submit` as the new number will be rendered automatically within the dropdown
