@@ -16,7 +16,8 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 <br>
 
-![image](/Users/westonperkins/Desktop/sei_GA/projects/PROJECT_ONE/Towers_of_Hanoi/img/gamescreenshotone.png)
+![image](/Towers_of_Hanoi/img/gamescreenshotone.png)
+( https://www.dropbox.com/s/j6sqv2k9v3eokz4/Screen%20Shot%202021-05-13%20at%201.11.58%20AM.png?dl=0 **if image does not load*)
 ##### Key
 - Top right displays the amount of moves you've made during a given level/turn as well as the amount of times you've had to reset the playing field during the game level.
 - Underneath the towers displays a drop down menu where you can choose between 3 - 8 rings. After you successfully beat a given set of rings, the following number of rings will be automatically suggested to you, if you wish to play on just hit `submit` as the new number will be rendered automatically within the dropdown
@@ -27,6 +28,7 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 
 ![image](/Towers_of_Hanoi/img/wireframeOne.png)
 Very basic layout of the game. First drawing to illustrate general themes and game landscape.
+( https://www.dropbox.com/s/rjwvc4bw7ro700g/Screen%20Shot%202021-05-13%20at%2010.59.49%20PM.png?dl=0 **if image does not load*)
 
 ---
 
