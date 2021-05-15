@@ -1,4 +1,4 @@
-// VARIABLES
+// assigning variables
 const towerOne = document.querySelector('.tOne')
 const invisibleTONE = document.querySelector('.IT1')
 const invisibleTTWO = document.querySelector('.IT2')
@@ -35,7 +35,7 @@ function applyVideo(ring, width, height, aspectRatio) {
       }
 }
 
-// CREATING RINGS TO APPEND TO TOWERS
+// creating rings and hardcoding their attributes and some styling, applyVideo *refernce function above*
 const ringOne = document.createElement('video')
 ringOne.setAttribute("autoplay", 'true')
 ringOne.setAttribute("class", 'ring ringOne')
@@ -59,7 +59,6 @@ ringThree.setAttribute("data-ring", '3')
 ringThree.style.width = '250px'
 ringThree.style.height = '50px'
 applyVideo(ringThree, 1280, 720, 5)
-
 
 const ringFour = document.createElement('video')
 ringFour.setAttribute("autoplay", 'true')
@@ -104,12 +103,13 @@ applyVideo(ringEight, 1280, 720, 10.1)
 // QUERY SELECTOR FOR ALL RINGS
 const rings = document.querySelectorAll('.ring')
 
-// SETTING UP GAME LOGIC WITH RINGS ON PILLARS
+// empty string to currently selected ring and previously selected ring and selected tower, this accounts for the ability to only have one ring selected at a time
+// the previosuly selected assures that styling wqill only be applies to the selected ring
 let selectedRing = ''
 let previouslySelectedRing = ''
 let selectedTower = ''
 
-// Ring setup function
+// Ring setup function (appending rings to towers)
 function ringSetUp(tower, ring){
     tower.append(ring)
 }
@@ -161,7 +161,7 @@ function eightRings() {
     ringSetUp(invisibleTONE, ringOne)
 }
 
-// LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS
+// LOGIC TO PROCESS INCREASING RINGS ACCORDINGLY ON THE PILLARS (would like to mak ethis more dynamic)
 function ringBottomStyling() {
     for(let i = 0; i < invis.length; i++) {
         if(invis[i].childNodes[0]){
@@ -198,6 +198,8 @@ function ringBottomStyling() {
 threeRings()
 ringBottomStyling()
 
+// clears all rings from tower (not super necessary but the first way i decided to go about it, tpyically if i would add a ring it wouldnt append it properly with the 
+// appropriate styling so i just decided to clear the tings and then re - append)
 function clearRings() {
     if(invisibleTONE.hasChildNodes(ringOne)) {
         invisibleTONE.removeChild(ringOne)
@@ -252,7 +254,7 @@ submit.addEventListener('click', () => {
         clearRings()
         eightRings()
     }
-    
+    // resetRing is a few lines down
     if(selectedRing) {
         resetRing(selectedRing)
     } else if(previouslySelectedRing) {
@@ -346,8 +348,11 @@ function moveRings(ring, towerTo) {
 }
 
 // ABLE TO MOVE RINGS FROM PILLAR TO PILLAR
+
+// event listener for RINGS and setting selectedRing value to e.target
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
+        // makign sure that the e.target is a ring and is the highest ring on the tower
         if((e.target.classList[0] === 'ring') && (e.target === e.target.parentNode.childNodes[e.target.parentNode.childNodes.length-1])) {
             if(selectedRing === '') {
                 selectedRing = e.target
@@ -362,7 +367,7 @@ for(let i = 0; i < invis.length; i++) {
         }
     })
 }
-
+// event listeners for TOWERS and setting selectedTower equal to the e.target
 for(let i = 0; i < invis.length; i++) {
     invis[i].addEventListener('click', e => {
         if(e.target.classList[0] == "invisible") {
@@ -375,6 +380,7 @@ for(let i = 0; i < invis.length; i++) {
                     moveRings(selectedRing, selectedTower)
                     resetRing(selectedRing)
                     selectedRing = ''
+                    // win condition
                     if(invisibleTTWO.childNodes.length === ringCount.value || invisibleTTHREE.childNodes.length === ringCount.value) {
                         winnerStatement.style.opacity = '100'
                         ringCount.value = parseInt(ringCount.value) + 1
@@ -388,6 +394,7 @@ for(let i = 0; i < invis.length; i++) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         moveRings(selectedRing, selectedTower)
                         resetRing(selectedRing)
+                        // win condition
                         if(invisibleTTWO.childNodes.length == ringCount.value || invisibleTTHREE.childNodes.length == ringCount.value) {
                             winnerStatement.style.opacity = '100'
                             ringCount.value = parseInt(ringCount.value) + 1
