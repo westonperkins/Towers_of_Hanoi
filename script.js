@@ -385,8 +385,8 @@ for(let i = 0; i < invis.length; i++) {
                         winnerStatement.style.opacity = '100'
                         ringCount.value = parseInt(ringCount.value) + 1
                         instruct.style.opacity = '100'
-                        body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'                      
-                        reset.style.opacity = '0'
+                        body.style.backgroundImage = 'url(/img/giphyleo.gif)'                      
+                        reset.style.display = 'none'
                         submit.style.boxShadow = '1px 1px 30px 10px white'
                         ringCount.style.boxShadow = '1px 1px 30px 10px white'
                     }
@@ -399,8 +399,8 @@ for(let i = 0; i < invis.length; i++) {
                             winnerStatement.style.opacity = '100'
                             ringCount.value = parseInt(ringCount.value) + 1
                             instruct.style.opacity = '100'
-                            body.style.backgroundImage = 'url(/Towers_of_Hanoi/img/giphyleo.gif)'
-                            reset.style.opacity = '0'
+                            body.style.backgroundImage = 'url(/img/giphyleo.gif)'
+                            reset.style.display = 'none'
                             submit.style.boxShadow = '1px 1px 30px 10px white'
                             ringCount.style.boxShadow = '1px 1px 30px 10px white'   
                         }

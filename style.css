@@ -8,7 +8,7 @@ body {
     height: 100vh;
     background-color: rgb(40, 40, 40);
     font-family: 'Roboto Mono';
-    background-image:url(/Towers_of_Hanoi/img/cloud.png);
+    background-image:url(/img/cloud.png);
     background-position:center;
     background-size: cover;
     overflow-x: hidden;
@@ -34,7 +34,7 @@ button, input, select {
 .base {
     width: 400px;
     height: 10px;
-    margin: 0rem 0rem;
+    /* margin: 0rem 0rem; */
 }
 
 .tower {
@@ -69,7 +69,7 @@ button, input, select {
 }
 
 .pillar {
-    margin: 0 2rem;
+    /* margin: 0 2rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,10 +239,9 @@ text-align: center;
     background-color: black;
     color: red;
     font-size: 2rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 1400px) {
     .pillar {
@@ -278,8 +277,8 @@ text-align: center;
 }
 @media (max-width: 1195px) {
     .mobile {
-        opacity: 100;
-        z-index: 1;
+        /* opacity: 100; */
+        /* z-index: 1; */
         text-align: center;
         width: 100vw;
         height: 100vh;
@@ -291,6 +290,40 @@ text-align: center;
         height: 0vh;
         overflow-x: hidden;
         overflow-y: hidden;
+        background-image: none !important;
+        background-color: white;
+        color: black;
+    
     }
-
+    .counters,
+    label,
+    #submit{
+        font-size: 1rem;
+    }
+    .base,
+    .invisible {
+        width: 200px;
+    
+    }
+    .instruct {
+        color: red;
+    }
+    .winner {
+        font-size: 1.3rem;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .reset {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3rem;
+    }
+    #ringCount {
+        width: 2.5rem;
+        height: 2rem;
+    }
 }
