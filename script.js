@@ -273,6 +273,7 @@ submit.addEventListener('click', () => {
     submit.style.boxShadow = ''
     ringCount.style.boxShadow = ''
     reset.style.opacity = '100'
+    reset.style.display = ''
 })
 
 // RESET BUTTON 
@@ -385,10 +386,10 @@ for(let i = 0; i < invis.length; i++) {
                         winnerStatement.style.opacity = '100'
                         ringCount.value = parseInt(ringCount.value) + 1
                         instruct.style.opacity = '100'
-                        body.style.backgroundImage = 'url(/img/giphyleo.gif)'                      
+                        // body.style.backgroundImage = 'url(/img/giphyleo.gif)'        
                         reset.style.display = 'none'
-                        submit.style.boxShadow = '1px 1px 30px 10px white'
-                        ringCount.style.boxShadow = '1px 1px 30px 10px white'
+                        submit.style.backgroundColor = 'red'
+                        ringCount.style.backgroundColor = 'red' 
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -399,10 +400,10 @@ for(let i = 0; i < invis.length; i++) {
                             winnerStatement.style.opacity = '100'
                             ringCount.value = parseInt(ringCount.value) + 1
                             instruct.style.opacity = '100'
-                            body.style.backgroundImage = 'url(/img/giphyleo.gif)'
+                            // body.style.backgroundImage = 'url(/img/giphyleo.gif)'
                             reset.style.display = 'none'
-                            submit.style.boxShadow = '1px 1px 30px 10px white'
-                            ringCount.style.boxShadow = '1px 1px 30px 10px white'   
+                            submit.style.backgroundColor = 'red'
+                            ringCount.style.backgroundColor = 'red' 
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the highest ring on this tower is too small for this ring')
