@@ -9,13 +9,28 @@
 	height: 375px;
 
 }
+button {
+	color: rgb(0, 0, 0);
+background-color: rgb(238, 238, 238);
+font-family: 'Roboto Mono';
+width: 6rem;
+height: 3rem;
+text-align: center;
+box-shadow: 1px 2px 1px 2px rgb(136, 129, 129);
+border-radius: 5%;
+}
+button:hover {
+	box-shadow: 2px 2px 0px 0px rgb(131, 131, 131);
+}
 a {
-	color: rgb(255, 0, 0);
+	font-family: 'Roboto Mono';
 	text-decoration: none;
-	font-size: 3rem;
+	font-size: 1.5rem;
+	width: 6rem;
+	height: 3rem;
 }
 body {
-    background-image:url(/img/cloud.png);
+    /* background-image:url(/img/cloud.png); */
     background-position:center;
     background-size: cover;
 	background-repeat: no-repeat;
@@ -44,7 +59,7 @@ h1 {
     100% { transform: translateY(50px); }
   }
 h1 {
-    animation: bounce 0.7s;
+    animation: bounce 2s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
 }
@@ -54,12 +69,14 @@ h1 {
 }
 
 
-@media (max-width:450px) {
+@media (max-width:550px) {
 	body {
 		width: 100vw;
+		
 	}
 	h1 {
 		font-size: 2rem;
+		margin-top: 5rem;
 	}
 	.note {
 		font-size: 1.5rem;
@@ -72,11 +89,13 @@ h1 {
 	}
 	#videoElement {
 		width: 120vw;
-		
-		/* margin-left: 50vw; */
+	
 	}
 	body {
 		width: 100vw;
 		height: 100vh;
+	}
+	button {
+		margin-bottom: 7rem;
 	}
 }

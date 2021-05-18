@@ -274,6 +274,12 @@ submit.addEventListener('click', () => {
     ringCount.style.boxShadow = ''
     reset.style.opacity = '100'
     reset.style.display = ''
+    submit.style.textShadow = ''
+    submit.style.backgroundColor = ''
+    submit.style.color = ''
+    ringCount.style.textShadow = ''
+    ringCount.style.backgroundColor = ''
+    ringCount.style.color = ''
 })
 
 // RESET BUTTON 
@@ -388,8 +394,12 @@ for(let i = 0; i < invis.length; i++) {
                         instruct.style.opacity = '100'
                         // body.style.backgroundImage = 'url(/img/giphyleo.gif)'        
                         reset.style.display = 'none'
-                        submit.style.backgroundColor = 'red'
-                        ringCount.style.backgroundColor = 'red' 
+                        submit.style.textShadow = '1px 1px 3px white'
+                        submit.style.backgroundColor = 'black'
+                        submit.style.color = 'white'
+                        ringCount.style.textShadow = '1px 1px 3px white'
+                        ringCount.style.backgroundColor = 'black'
+                        ringCount.style.color = 'white'
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -402,8 +412,12 @@ for(let i = 0; i < invis.length; i++) {
                             instruct.style.opacity = '100'
                             // body.style.backgroundImage = 'url(/img/giphyleo.gif)'
                             reset.style.display = 'none'
-                            submit.style.backgroundColor = 'red'
-                            ringCount.style.backgroundColor = 'red' 
+                            submit.style.textShadow = '1px 1px 3px white'
+                            submit.style.backgroundColor = 'black'
+                            submit.style.color = 'white'
+                            ringCount.style.textShadow = '1px 1px 3px white'
+                            ringCount.style.backgroundColor = 'black'
+                            ringCount.style.color = 'white'
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the highest ring on this tower is too small for this ring')
