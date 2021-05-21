@@ -343,4 +343,76 @@ border-radius: 5%;
         width: 2.5rem;
         height: 2rem;
     }
+  
+}
+
+
+@media (max-width: 450px) {
+    .ringEight {
+        width: 170px !important;
+    }
+    .ringSeven {
+        width: 150px !important;
+    }
+    .ringSix {
+        width: 130px !important;
+    }
+    .ringFive {
+        width: 110px !important;
+    }
+    
+    .ringFour {
+        width: 90px !important;
+    }
+    
+    .ringThree {
+        width: 70px !important;
+    }
+    
+    .ringTwo {
+        width: 50px !important;
+    }
+    .ringOne {
+        width: 30px !important;
+    }
+    .base,
+    .invisible {
+        width: 120px;
+    }
+    #ringCount {
+        font-size: 1rem;
+        width: 2rem;
+        margin: 0;
+    }
+    .reset {
+        height: 2rem;
+    }
+    .counter,
+    .counters,
+    .resetCounter {
+  
+    }
+    .counters {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 1rem;
+        width: 100vw;
+    }
+    .winCondition {
+        font-size: 1rem;
+        width: 100vw;
+
+    }
+    .winner {
+        font-size: 1rem;
+    }
+    #submit {
+        width:4rem;
+        height: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    option {
+        font-size: 1rem;
+    }
 }
