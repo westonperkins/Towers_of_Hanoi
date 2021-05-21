@@ -419,4 +419,7 @@ border-radius: 5%;
     .tower {
         height: 500px;
     }
+    body {
+        overflow-y:scroll;
+    }
 }
