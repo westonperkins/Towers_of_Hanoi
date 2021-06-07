@@ -44,6 +44,10 @@ ringOne.style.width = '150px'
 ringOne.style.height = '50px'
 applyVideo(ringOne, 1280, 720, 3)
 
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringOne, 1280, 720, 1)
+}
+
 const ringTwo = document.createElement('video')
 ringTwo.setAttribute("autoplay", 'true')
 ringTwo.setAttribute("class", 'ring ringTwo')
@@ -51,6 +55,10 @@ ringTwo.setAttribute("data-ring", '2')
 ringTwo.style.width = '200px'
 ringTwo.style.height = '50px'
 applyVideo(ringTwo, 1280, 720, 4)
+
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringTwo, 1280, 720, 0)
+}
 
 const ringThree = document.createElement('video')
 ringThree.setAttribute("autoplay", 'true')
@@ -60,6 +68,10 @@ ringThree.style.width = '250px'
 ringThree.style.height = '50px'
 applyVideo(ringThree, 1280, 720, 5)
 
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringThree, 1280, 720, 0)
+}
+
 const ringFour = document.createElement('video')
 ringFour.setAttribute("autoplay", 'true')
 ringFour.setAttribute("class", 'ring ringFour')
@@ -67,6 +79,10 @@ ringFour.setAttribute("data-ring", '4')
 ringFour.style.width = '300px'
 ringFour.style.height = '50px'
 applyVideo(ringFour, 1280, 720, 6)
+
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringFour, 1280, 720, 3)
+}
 
 const ringFive = document.createElement('video')
 ringFive.setAttribute("autoplay", 'true')
@@ -76,6 +92,10 @@ ringFive.style.width = '350px'
 ringFive.style.height = '50px'
 applyVideo(ringFive, 1280, 720, 7)
 
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringFive, 1280, 720, 3)
+}
+
 const ringSix = document.createElement('video')
 ringSix.setAttribute("autoplay", 'true')
 ringSix.className = 'ring ringSix'
@@ -83,6 +103,10 @@ ringSix.setAttribute('data-ring', '6')
 ringSix.style.width = '400px'
 ringSix.style.height = '50px'
 applyVideo(ringSix, 1280, 720, 8)
+
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringSix, 1280, 720, 4)
+}
 
 const ringSeven = document.createElement('video')
 ringSeven.setAttribute("autoplay", 'true')
@@ -92,6 +116,10 @@ ringSeven.style.width = '450px'
 ringSeven.style.height = '50px'
 applyVideo(ringSeven, 1280, 720, 9.1)
 
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringSeven, 1280, 720, 4)
+}
+
 const ringEight = document.createElement('video')
 ringEight.setAttribute("autoplay", 'true')
 ringEight.className = 'ring ringEight'
@@ -99,6 +127,10 @@ ringEight.setAttribute('data-ring', '8')
 ringEight.style.width = '500px'
 ringEight.style.height = '50px'
 applyVideo(ringEight, 1280, 720, 10.1)
+
+if(window.visualViewport.width <= 1400) {
+    applyVideo(ringEight, 1280, 720, 5)
+}
 
 // QUERY SELECTOR FOR ALL RINGS
 const rings = document.querySelectorAll('.ring')
@@ -400,6 +432,9 @@ for(let i = 0; i < invis.length; i++) {
                         ringCount.style.textShadow = '1px 1px 3px white'
                         ringCount.style.backgroundColor = 'black'
                         ringCount.style.color = 'white'
+                        // body.style.filter = 'invert()'
+                       
+                        
                     }
                 } else if(selectedTower.childNodes.length >= 1) {
                     if(selectedRing.dataset['ring'] < selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
@@ -418,6 +453,9 @@ for(let i = 0; i < invis.length; i++) {
                             ringCount.style.textShadow = '1px 1px 3px white'
                             ringCount.style.backgroundColor = 'black'
                             ringCount.style.color = 'white'
+                            // body.style.filter = 'invert()'
+                            
+                            
                         }
                     } else if(selectedRing.dataset['ring'] > selectedTower.childNodes[selectedTower.childNodes.length-1].dataset['ring']) {
                         alert('the highest ring on this tower is too small for this ring')

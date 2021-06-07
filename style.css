@@ -13,6 +13,7 @@ body {
     background-size: cover;
     overflow-x: hidden;
     overflow-y: hidden;
+
 }
 
 * {
@@ -261,6 +262,7 @@ border-radius: 5%;
     align-items: center;
 }
 @media (max-width: 1400px) {
+  
     .pillar {
         margin: 0;
     }
@@ -293,6 +295,7 @@ border-radius: 5%;
     }
 }
 @media (max-width: 1195px) {
+   
     .mobile {
         /* opacity: 100; */
         /* z-index: 1; */

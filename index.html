@@ -10,14 +10,38 @@
 </head>
 <body>
     <h1>Towers Of Hanoi</h1>
-    <div class="featuring">
-        <div class="note">Featuring: You 
-            <br><span class="message">(turn your camera on)</span></div>
-        <div id="container">
-            <video autoplay="true" id="videoElement"></video>
+    <div class="content">
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <div>Simply put, the goal is to get the rings, however many there may be, from the starting position 
+                (tower) to the end position (tower) in the same order that the rings were origionally placed in. 
+                There are typically three towers, a starting tower, a central tower to help distribute movements,
+                 and an end tower. In my edition there is no explicit "end" tower, either two of the origionally 
+                 empty towers can act as an "end" or a central". Upon moving the rings, you will see they descend 
+                 in width from top to bottom. `You cannot place a ring of greater width on top of a ring with smaller 
+                 width when trying to move, if a movement is made, the ring being placed must be smaller than the 
+                 ring underneath it or the tower must be empty on placement. The only rings that can be moved are 
+                 the highest rings on any given tower, if the ring is not at the highest point on the tower it cannot 
+                 be moved.` Once the rings are succesfully placed from the starting tower for an alternative tower in 
+                 the same starting order (from smallest to largest), the game has been won. </div>
+        </div>
+        <div class="featuring">
+            <div class="note">Featuring: You 
+                <br><span class="message">(turn your camera on)</span>
+            </div>
+            <div id="container">
+                <video autoplay="true" id="videoElement"></video>
+            </div>
+        </div>
+        <div class="considerations">
+            <h2>Considerations</h2>
+            <div>Best to play (and view) on a laptop screen or something larger than 1400px wide. The game is configured
+                for multiple screen sizes but if you want the most pleasant expirience and most accurate to the final build
+                ... just play on desktop. Who plays phone games anymore anyways. <br> { but if anyone wants to buy a level 11 Town Hall message me }
+            </div>
         </div>
     </div>
-    <button><a href="pageOne.html">START</a></button>
+        <button><a href="pageOne.html">START</a></button>
     <script src="intro.js"></script>
 </body>
 </html>
