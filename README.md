@@ -18,6 +18,7 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 <!-- ![gif](img/TOH_gif.gif) -->
 <br>
 
+![towers](https://user-images.githubusercontent.com/79667230/139553849-188ca95c-9ae3-4f47-97b9-42ad387405d4.gif)
 
 ### Without camera access
 ![image](img/gamescreenshotone.png)
