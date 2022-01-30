@@ -1,13 +1,35 @@
-# Towers_of_Hanoi
+# Towers_of_Hanoi {ignore=true}
+### [Play the game](https://westonperkins.github.io/Towers_of_Hanoi/) {ignore=true}
+ **Enable your browers camera for the full effect*
 
-##### Towers of hanoi game built with:
+<hr>
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+## Table of Contents {ignore=true}
+- [Technologies Used:](#technologies-used)
+- [How to play Towers of Hanoi](#how-to-play-towers-of-hanoi)
+- [Without camera access](#without-camera-access)
+- [With camera access](#with-camera-access)
+    - [Game Key (interface)](#game-key-interface)
+  - [Initial Wireframes](#initial-wireframes)
+- [MVP (minimum viable product)](#mvp-minimum-viable-product)
+- [User Stories](#user-stories)
+- [Strech Goals](#strech-goals)
+    - [Origional 'Stretch Goals' before starting build](#origional-stretch-goals-before-starting-build)
+    - ['Stretch Goals' after completion](#stretch-goals-after-completion)
+
+<!-- /code_chunk_output -->
+
+
+
+### Technologies Used:
 - Css
 - Html 
 - Javascript 
+- Github pages
 
-#### Play the game: 
-https://westonperkins.github.io/Towers_of_Hanoi/
-###### **Enable your browers camera for the full effect*
 
 ---
 
@@ -28,13 +50,13 @@ Simply put, the goal is to get the rings, however many there may be, from the st
 **does not have any effect on number of rings*
 
 
-##### Key
+##### Game Key (interface)
 - Top right displays the amount of moves you've made during a given level/turn as well as the amount of times you've had to reset the playing field during the game level.
 - Underneath the towers displays a drop down menu where you can choose between 3 - 8 rings. After you successfully beat a given set of rings, the following number of rings will be automatically suggested to you, if you wish to play on just hit `submit` as the new number will be rendered automatically within the dropdown
 -  The top left offers a `reset` button where you are able to reset the field if you get stuck. Pressing the button does not count as a move however it does not reset the counter, and it will add 1 to the reset counter (obviously)
 
 ---
-#### Wireframes
+#### Initial Wireframes
 
 ![image](img/wireframeOne.png)
 Very basic layout of the game. First drawing to illustrate general themes and game landscape.
@@ -42,7 +64,7 @@ Very basic layout of the game. First drawing to illustrate general themes and ga
 
 ---
 
-### MVP
+### MVP (minimum viable product)
 The game needs to be playable at its core. Meaning:
 - The user needs to be able to move pieces from one pillar to another and with appropriate order. 
 - The user needs to be able to lose and win and definitely reset if they get stuck. Because the game is capable of producing a 'dead end' scenario without winning, you need to be able to reset. This would technically be characterized as losing since the chance of winning after this result is met is impossible. 
